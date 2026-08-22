@@ -7,10 +7,12 @@ import {
   ChevronLeft,
   Clock3,
   Compass,
+  ExternalLink,
   GraduationCap,
   Headphones,
   MapPin,
   Menu,
+  Phone,
   Search,
   ShieldCheck,
   Sparkles,
@@ -335,15 +337,15 @@ const programs: Program[] = [
     month: "ديسمبر",
     monthOrder: 12,
     day: "13",
-    name: "محترف أعمال إدارة المشاريع PBP",
+    name: "محترف أعمال إدارة المشاريع PMP",
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
     price: "4,100 ريال شهادة احترافية / 2,000 ريال شهادة محلية",
-    overview: "برنامج معتمد لإدارة المشاريع الاحترافية (PBP) يؤهل المشاركين لتطبيق منهجيات إدارة المشاريع الحديثة من التخطيط وحتى التسليم.",
+    overview: "برنامج معتمد لإدارة المشاريع الاحترافية (PMP) يؤهل المشاركين لتطبيق منهجيات إدارة المشاريع الحديثة من التخطيط وحتى التسليم.",
     axes: ["دورة حياة المشروع الاحترافية", "تخطيط وجدولة المشاريع", "إدارة الموارد والميزانية", "إدارة الجودة والمخاطر", "إغلاق المشروع وتوثيق الدروس المستفادة"],
-    audience: "مديرو ومنسقو المشاريع، الراغبون في اعتماد PBP.",
-    tags: ["إدارة مشاريع", "PBP", "تخطيط"],
+    audience: "مديرو ومنسقو المشاريع، الراغبون في اعتماد PMP.",
+    tags: ["إدارة مشاريع", "PMP", "تخطيط"],
     certificate: "شهادة احترافية دولية أو شهادة محلية معتمدة حسب المسار المختار",
   },
   {
@@ -501,7 +503,7 @@ export function TrainingPlatform() {
       `}</style>
 
       <div className="bg-[#d9b65c] px-5 py-2 text-center text-[11px] font-bold tracking-[.05em] text-[#182945] md:text-[12px]">
-        الخطة التدريبية 2026 · المقاعد تفتح تباعاً — اختر مسارك القادم بثقة
+         الخطة التدريبية 2026م · المقاعد تفتح تباعاً — اختر مسارك القادم بثقة
       </div>
 
       <header className="relative isolate overflow-hidden bg-[#101f38] text-[#faf5e9]">
@@ -510,15 +512,14 @@ export function TrainingPlatform() {
         <div className="absolute right-[46%] top-4 -z-10 h-40 w-40 rounded-full border border-[#caa650]/25" />
         <div className="mx-auto max-w-[1240px] px-5 md:px-8">
           <nav className="flex min-h-[82px] items-center justify-between gap-5 border-b border-white/10">
-            <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 text-right focus:outline-none focus:ring-2 focus:ring-[#d7b45b] focus:ring-offset-2 focus:ring-offset-[#101f38]">
-              <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-[#d7b45b] font-[var(--font-display)] text-[18px] font-black text-[#101f38] shadow-[0_8px_24px_rgba(215,180,91,.22)]">
-                <span className="absolute -left-2 -top-3 h-8 w-8 rounded-full border border-[#101f38]/20" />
-                سر
-              </span>
-              <span className="hidden sm:block">
-                <span className="block font-[var(--font-display)] text-[16px] font-black leading-6">سهول الرواد</span>
-                <span className="block text-[10px] tracking-[.04em] text-[#c6cbd7]">للتدريب والتطوير</span>
-              </span>
+             <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 text-right focus:outline-none focus:ring-2 focus:ring-[#d7b45b] focus:ring-offset-2 focus:ring-offset-[#101f38]">
+               <span className="flex h-14 w-[82px] items-center justify-center overflow-hidden rounded-2xl bg-[#f8f4eb] p-1 shadow-[0_8px_24px_rgba(215,180,91,.22)]">
+                 <img src="/__mockup/images/suhool-logo.png" alt="شعار سهول الرواد" className="h-full w-full object-contain" />
+               </span>
+               <span className="hidden sm:block">
+                 <span className="block font-[var(--font-display)] text-[16px] font-black leading-6">معهد سهول الرواد العالي للتدريب</span>
+                 <span className="block text-[10px] tracking-[.04em] text-[#c6cbd7]">الخطة التدريبية 2026م</span>
+               </span>
             </button>
             <div className="hidden items-center gap-8 text-[13px] font-bold text-[#d6d9df] md:flex">
               <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="transition hover:text-[#f0cf76]">الرئيسية</button>
@@ -605,7 +606,7 @@ export function TrainingPlatform() {
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#a67a21]"><span className="h-px w-8 bg-[#a67a21]" />الخطة التدريبية</div>
-               <h2 className="font-[var(--font-display)] text-[clamp(30px,4vw,48px)] font-black leading-[1.2] tracking-[-.03em] text-[#182945]">الخطة التدريبية<br /><span className="text-[#a67a21]">شهراً بعد شهر.</span></h2>
+              <h2 className="font-[var(--font-display)] text-[clamp(30px,4vw,48px)] font-black leading-[1.2] tracking-[-.03em] text-[#182945]">الخطة التدريبية 2026م<br /><span className="text-[#a67a21]">شهراً بعد شهر.</span></h2>
             </div>
              <p className="max-w-[310px] text-[13px] leading-7 text-[#6d716b]">اختر الشهر لتظهر لك مواعيد البرامج، المدن، وطريقة الحضور في مكان واحد.</p>
           </div>
@@ -643,16 +644,16 @@ export function TrainingPlatform() {
         </div>
       </section>
 
-      <section className="bg-[#182945] px-5 py-20 text-[#f8f1df] md:px-8 md:py-24">
+       <section className="bg-[#182945] px-5 py-20 text-[#f8f1df] md:px-8 md:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-[1fr_auto] md:items-center">
-          <div><div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#e4c774]"><span className="h-px w-8 bg-[#e4c774]" />خطوتك التالية</div><h2 className="max-w-[680px] font-[var(--font-display)] text-[clamp(29px,4vw,47px)] font-black leading-[1.25]">لا تنتظر البرنامج المثالي.<br /><span className="text-[#e4c774]">ابدأ بالبرنامج المناسب الآن.</span></h2><p className="mt-5 max-w-[580px] text-[14px] leading-7 text-[#bec6d0]">فريقنا جاهز لمساعدتك في اختيار المسار الذي يطابق أهدافك المهنية واحتياج فريقك.</p></div>
-          <button type="button" onClick={scrollToPrograms} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7b45b] px-7 py-4 text-[13px] font-black text-[#182945] transition hover:-translate-y-1 hover:bg-[#efd181]">اختر برنامجك <ArrowLeft size={17} /></button>
+           <div><div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#e4c774]"><span className="h-px w-8 bg-[#e4c774]" />للتسجيل والاستفسار</div><h2 className="max-w-[680px] font-[var(--font-display)] text-[clamp(29px,4vw,47px)] font-black leading-[1.25]">لمزيد من التفاصيل<br /><span className="text-[#e4c774]">تواصل مع قسم المبيعات.</span></h2><p className="mt-5 max-w-[580px] text-[14px] leading-7 text-[#bec6d0]">للتسجيل في البرامج التدريبية والاستفسار عن المواعيد والرسوم، يسعد فريق المبيعات بخدمتكم.</p><div className="mt-5 flex flex-wrap gap-3 text-[14px] font-black text-[#f6e7b8]"><a href="tel:0595928796" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928812</a></div></div>
+           <button type="button" onClick={scrollToPrograms} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7b45b] px-7 py-4 text-[13px] font-black text-[#182945] transition hover:-translate-y-1 hover:bg-[#efd181]">العودة إلى الخطة <ArrowLeft size={17} /></button>
         </div>
       </section>
 
       <footer className="bg-[#101f38] px-5 py-10 text-[#aeb7c4] md:px-8">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-7 md:flex-row md:items-end md:justify-between">
-          <div><div className="flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d7b45b] font-[var(--font-display)] font-black text-[#182945]">سر</span><div><div className="font-[var(--font-display)] text-[15px] font-black text-[#f5e7bd]">سهول الرواد للتدريب والتطوير</div><div className="mt-1 text-[10px] text-[#8591a3]">Suhool Al-Ruwad Institute for Training</div></div></div><p className="mt-5 max-w-[390px] text-[12px] leading-6 text-[#8591a3]">نصنع مساحات يتقاطع فيها الطموح مع المعرفة، وتتحول فيها الخطط إلى نتائج.</p></div>
+           <div><div className="flex items-center gap-3"><span className="flex h-11 w-[64px] items-center justify-center overflow-hidden rounded-xl bg-[#f8f4eb] p-1"><img src="/__mockup/images/suhool-logo.png" alt="شعار معهد سهول الرواد" className="h-full w-full object-contain" /></span><div><div className="font-[var(--font-display)] text-[15px] font-black text-[#f5e7bd]">معهد سهول الرواد العالي للتدريب</div><div className="mt-1 text-[10px] text-[#8591a3]">Suhool Al-Ruwad Institute for Training</div></div></div><p className="mt-5 max-w-[390px] text-[12px] leading-6 text-[#8591a3]">الخطة التدريبية 2026م — برامج مهنية مرتبة حسب الشهر لتختار موعدك ومسارك بثقة.</p></div>
           <div className="text-right text-[11px] leading-6 text-[#8591a3]"><div>الخطة التدريبية تُحدّث دورياً</div><div>© سهول الرواد للتدريب والتطوير 2026</div></div>
         </div>
       </footer>
@@ -678,7 +679,7 @@ export function TrainingPlatform() {
               <aside className="space-y-4">
                 <div className="rounded-[22px] border border-[#e0d9cb] bg-[#fffdf8] p-5"><h3 className="font-[var(--font-display)] text-[17px] font-black text-[#182945]">معلومات سريعة</h3><div className="mt-4 space-y-3 text-[12px]"><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">الفئة المستهدفة</span><b className="max-w-[150px] text-left leading-5 text-[#182945]">{selectedProgram.audience}</b></div><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">المدرب</span><b className="text-left text-[#182945]">فريق مدربين معتمدين</b></div><div className="flex justify-between gap-4"><span className="text-[#888a82]">الرسوم</span><b className="max-w-[160px] text-left leading-5 text-[#9b731e]">{selectedProgram.price}</b></div></div></div>
                 <div className="rounded-[22px] bg-[#e9dfc4] p-5"><h3 className="font-[var(--font-display)] text-[16px] font-black text-[#182945]">يستهدف مهارات</h3><div className="mt-3 flex flex-wrap gap-2">{selectedProgram.tags.map((tag) => <span key={tag} className="rounded-full bg-[#f8f1df] px-3 py-1.5 text-[11px] font-bold text-[#7b601e]">{tag}</span>)}</div></div>
-                <div className="rounded-[22px] bg-[#182945] p-5 text-[#f8f1df]"><h3 className="font-[var(--font-display)] text-[17px] font-black">هل يناسبك هذا المسار؟</h3><p className="mt-2 text-[12px] leading-6 text-[#bfc8d4]">سجّل اهتمامك وسيتواصل معك فريقنا بالمقاعد والتفاصيل الإدارية.</p><button type="button" onClick={() => openInterest(selectedProgram)} className="mt-4 w-full rounded-full bg-[#d7b45b] py-3 text-[12px] font-black text-[#182945] transition hover:bg-[#efd181]">سجّل اهتمامك</button></div>
+                <div className="rounded-[22px] bg-[#182945] p-5 text-[#f8f1df]"><h3 className="font-[var(--font-display)] text-[17px] font-black">للتفاصيل والتسجيل</h3><p className="mt-2 text-[12px] leading-6 text-[#bfc8d4]">للتسجيل في البرنامج التدريبي أو معرفة التفاصيل، تواصل مع قسم المبيعات:</p><div className="mt-3 grid gap-2 text-[13px] font-black text-[#f4d982]"><a href="tel:0595928796" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928812</a></div><button type="button" onClick={() => openInterest(selectedProgram)} className="mt-4 w-full rounded-full bg-[#d7b45b] py-3 text-[12px] font-black text-[#182945] transition hover:bg-[#efd181]">سجّل اهتمامك</button></div>
               </aside>
             </div>
           </article>
@@ -690,7 +691,7 @@ export function TrainingPlatform() {
           <button type="button" aria-label="إغلاق نموذج الاهتمام" onClick={() => setInterestProgram(null)} className="absolute inset-0 cursor-default" />
           <div className="relative w-full max-w-[520px] rounded-t-[28px] bg-[#fffdf8] p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] md:rounded-[28px] md:p-8">
             <button type="button" onClick={() => setInterestProgram(null)} aria-label="إغلاق" className="absolute left-5 top-5 rounded-full p-2 text-[#73766f] transition hover:bg-[#eee7da] hover:text-[#182945]"><X size={18} /></button>
-            {interestSent ? <div className="py-8 text-center"><div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#dff0e9] text-[#256b63]"><Check size={30} /></div><h2 className="mt-5 font-[var(--font-display)] text-[24px] font-black text-[#182945]">وصل اهتمامك بنجاح</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-7 text-[#73766f]">شكراً {formName.split(" ")[0] || "لك"}، سيتواصل معك فريق سهول الرواد قريباً حول برنامج «{interestProgram.name}».</p><button type="button" onClick={() => setInterestProgram(null)} className="mt-7 rounded-full bg-[#182945] px-6 py-3 text-[12px] font-black text-[#f5e7bd]">تم</button></div> : <><div className="mb-7 border-b border-[#e2ded4] pb-5"><div className="text-[11px] font-black text-[#ae8123]">سجّل اهتمامك</div><h2 className="mt-2 max-w-[390px] font-[var(--font-display)] text-[22px] font-black leading-8 text-[#182945]">{interestProgram.name}</h2><p className="mt-2 text-[12px] text-[#7b7d75]">{interestProgram.date} · {interestProgram.city}</p></div><form onSubmit={submitInterest} className="space-y-4"><label className="block text-[12px] font-bold text-[#555d5d]">الاسم الكامل<input required value={formName} onChange={(event) => setFormName(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="اكتب اسمك" /></label><label className="block text-[12px] font-bold text-[#555d5d]">البريد الإلكتروني<input required type="email" value={formEmail} onChange={(event) => setFormEmail(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="name@company.com" /></label><label className="block text-[12px] font-bold text-[#555d5d]">رقم الجوال<input required type="tel" value={formPhone} onChange={(event) => setFormPhone(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="05xxxxxxxx" /></label><button type="submit" className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#182945] py-3.5 text-[13px] font-black text-[#f5e7bd] transition hover:bg-[#243a60]">إرسال الاهتمام <ArrowLeft size={16} /></button></form></>}
+            {interestSent ? <div className="py-8 text-center"><div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#dff0e9] text-[#256b63]"><Check size={30} /></div><h2 className="mt-5 font-[var(--font-display)] text-[24px] font-black text-[#182945]">وصل اهتمامك بنجاح</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-7 text-[#73766f]">شكراً {formName.split(" ")[0] || "لك"}، سيتواصل معك فريق سهول الرواد قريباً حول برنامج «{interestProgram.name}».</p><button type="button" onClick={() => setInterestProgram(null)} className="mt-7 rounded-full bg-[#182945] px-6 py-3 text-[12px] font-black text-[#f5e7bd]">تم</button></div> : <><div className="mb-7 border-b border-[#e2ded4] pb-5"><div className="text-[11px] font-black text-[#ae8123]">للتفاصيل والتسجيل</div><h2 className="mt-2 max-w-[390px] font-[var(--font-display)] text-[22px] font-black leading-8 text-[#182945]">{interestProgram.name}</h2><p className="mt-2 text-[12px] text-[#7b7d75]">{interestProgram.date} · {interestProgram.city}</p><div className="mt-3 flex flex-wrap gap-3 text-[12px] font-bold text-[#9b731e]"><a href="tel:0595928796">0595928796</a><a href="tel:0595928812">0595928812</a></div></div><form onSubmit={submitInterest} className="space-y-4"><label className="block text-[12px] font-bold text-[#555d5d]">الاسم الكامل<input required value={formName} onChange={(event) => setFormName(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="اكتب اسمك" /></label><label className="block text-[12px] font-bold text-[#555d5d]">البريد الإلكتروني<input required type="email" value={formEmail} onChange={(event) => setFormEmail(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="name@company.com" /></label><label className="block text-[12px] font-bold text-[#555d5d]">رقم الجوال<input required type="tel" value={formPhone} onChange={(event) => setFormPhone(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="05xxxxxxxx" /></label><button type="submit" className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#182945] py-3.5 text-[13px] font-black text-[#f5e7bd] transition hover:bg-[#243a60]">إرسال الاهتمام <ArrowLeft size={16} /></button></form></>}
           </div>
         </div>
       )}

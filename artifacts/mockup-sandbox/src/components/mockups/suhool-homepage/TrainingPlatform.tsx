@@ -1,9 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import {
   ArrowLeft,
-  ArrowUpLeft,
-  Award,
-  BarChart3,
   CalendarDays,
   Check,
   ChevronDown,
@@ -18,7 +15,6 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
-  Users,
   X,
   type LucideIcon,
 } from "lucide-react";
@@ -527,7 +523,7 @@ export function TrainingPlatform() {
             <div className="hidden items-center gap-8 text-[13px] font-bold text-[#d6d9df] md:flex">
               <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="transition hover:text-[#f0cf76]">الرئيسية</button>
               <button type="button" onClick={scrollToPrograms} className="transition hover:text-[#f0cf76]">البرامج القادمة</button>
-              <button type="button" onClick={() => document.getElementById("approach")?.scrollIntoView({ behavior: "smooth" })} className="transition hover:text-[#f0cf76]">منهجيتنا</button>
+              <button type="button" onClick={scrollToPrograms} className="transition hover:text-[#f0cf76]">الخطة الشهرية</button>
             </div>
             <div className="flex items-center gap-2">
               <button type="button" onClick={scrollToPrograms} className="hidden rounded-full bg-[#d7b45b] px-5 py-2.5 text-[12px] font-black text-[#101f38] transition hover:bg-[#efd181] sm:block">استكشف البرامج</button>
@@ -538,24 +534,24 @@ export function TrainingPlatform() {
             <div className="grid gap-1 border-b border-white/10 py-3 text-[13px] font-bold md:hidden">
               <button type="button" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="rounded-xl px-3 py-3 text-right hover:bg-white/10">الرئيسية</button>
               <button type="button" onClick={() => { setMenuOpen(false); scrollToPrograms(); }} className="rounded-xl px-3 py-3 text-right hover:bg-white/10">البرامج القادمة</button>
-              <button type="button" onClick={() => { setMenuOpen(false); document.getElementById("approach")?.scrollIntoView({ behavior: "smooth" }); }} className="rounded-xl px-3 py-3 text-right hover:bg-white/10">منهجيتنا</button>
+              <button type="button" onClick={() => { setMenuOpen(false); scrollToPrograms(); }} className="rounded-xl px-3 py-3 text-right hover:bg-white/10">الخطة الشهرية</button>
             </div>
           )}
-          <div className="grid gap-12 py-16 md:grid-cols-[1.1fr_.9fr] md:items-center md:py-24">
+          <div className="grid gap-9 py-11 md:grid-cols-[1.05fr_.95fr] md:items-center md:py-16">
             <div className="suhool-rise">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d7b45b]/35 bg-[#d7b45b]/10 px-3.5 py-2 text-[11px] font-bold text-[#f0cf76]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d7b45b]" />
-                وجهتك للجاهزية المهنية
+                الخطة التدريبية 2026
               </div>
-              <h1 className="max-w-[680px] font-[var(--font-display)] text-[clamp(34px,6vw,70px)] font-black leading-[1.13] tracking-[-.04em]">
-                معرفةٌ تُترجم إلى<br /><span className="text-[#e2bd62]">أثرٍ يُرى.</span>
+              <h1 className="max-w-[680px] font-[var(--font-display)] text-[clamp(34px,5vw,62px)] font-black leading-[1.16] tracking-[-.04em]">
+                برامجك القادمة،<br /><span className="text-[#e2bd62]">مرتبة بوضوح.</span>
               </h1>
               <p className="mt-6 max-w-[560px] text-[15px] leading-8 text-[#c8ced8] md:text-[17px]">
-                برامج احترافية مصممة لقادة اليوم وصنّاع الغد. تعلّم تطبيقي، مدربون معتمدون، ومسارات واضحة تقرّبك من الخطوة التالية.
+                تصفّح جدول البرامج التدريبية حسب الشهر، واختر الموعد والمسار الذي يناسب أهدافك المهنية.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
-                <button type="button" onClick={scrollToPrograms} className="inline-flex items-center gap-2 rounded-full bg-[#d7b45b] px-6 py-3.5 text-[13px] font-black text-[#101f38] shadow-[0_12px_25px_rgba(215,180,91,.15)] transition hover:-translate-y-0.5 hover:bg-[#efd181] focus:outline-none focus:ring-2 focus:ring-[#efd181] focus:ring-offset-2 focus:ring-offset-[#101f38]">تصفح البرامج القادمة <ArrowLeft size={16} /></button>
-                <button type="button" onClick={() => document.getElementById("approach")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-[13px] font-bold text-[#e6e9ee] transition hover:border-[#d7b45b] hover:text-[#f0cf76]">لماذا سهول الرواد <ArrowUpLeft size={15} /></button>
+                <button type="button" onClick={scrollToPrograms} className="inline-flex items-center gap-2 rounded-full bg-[#d7b45b] px-6 py-3.5 text-[13px] font-black text-[#101f38] shadow-[0_12px_25px_rgba(215,180,91,.15)] transition hover:-translate-y-0.5 hover:bg-[#efd181] focus:outline-none focus:ring-2 focus:ring-[#efd181] focus:ring-offset-2 focus:ring-offset-[#101f38]">تصفح الخطة الشهرية <ArrowLeft size={16} /></button>
+                <span className="inline-flex items-center gap-2 px-2 text-[12px] font-bold text-[#c8ced8]"><CalendarDays size={15} className="text-[#d7b45b]" /> أغسطس — ديسمبر 2026</span>
               </div>
             </div>
             <div className="relative mx-auto w-full max-w-[450px] suhool-rise suhool-delay-2">
@@ -604,38 +600,14 @@ export function TrainingPlatform() {
         </div>
       </section>
 
-      <section id="approach" className="mx-auto max-w-[1240px] px-5 py-20 md:px-8 md:py-28">
-        <div className="grid gap-12 md:grid-cols-[.8fr_1.2fr] md:items-end">
-          <div className="suhool-rise">
-            <div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#b18328]"><span className="h-px w-8 bg-[#b18328]" />منهجية سهول</div>
-            <h2 className="font-[var(--font-display)] text-[clamp(30px,4vw,50px)] font-black leading-[1.2] tracking-[-.03em] text-[#182945]">مساحة تعلّم<br />تليق بالطموح.</h2>
-          </div>
-          <p className="max-w-[620px] text-[15px] leading-8 text-[#666c68] md:text-[17px]">نحن لا نملأ القاعات بالمعلومات. نبني مسارات تعلم تضع المعرفة في سياقها، وتمنح كل مشارك أدوات قابلة للاستخدام في اليوم التالي.</p>
-        </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {([
-            [Award, "اعتماد يُطمئن", "برامج بمعايير مهنية واضحة، وشهادات موثوقة تكمّل مسيرتك."],
-            [BarChart3, "تطبيق يقود النتيجة", "منهجيات عملية ودراسات حالة تربط المفهوم بواقع مؤسستك."],
-            [Users, "مدربون يفهمون الميدان", "خبرات تنفيذية تضع خبرتها بين يديك، لا تكتفي بعرضها."],
-          ] as Array<[LucideIcon, string, string]>).map(([FeatureIcon, title, text], index) => {
-            return <article key={String(title)} className={`rounded-[24px] border border-[#ded8cc] bg-[#fbf8f1] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#c7a252] hover:bg-[#fffdf8] suhool-rise suhool-delay-${index + 1}`}>
-              <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#182945] text-[#e2bd62]"><FeatureIcon size={21} /></div>
-              <h3 className="font-[var(--font-display)] text-[19px] font-black text-[#182945]">{title}</h3>
-              <p className="mt-3 text-[13px] leading-7 text-[#72756e]">{text}</p>
-              <div className="mt-7 h-1 w-8 rounded-full bg-[#d7b45b]" />
-            </article>;
-          })}
-        </div>
-      </section>
-
       <section id="programs" className="scroll-mt-8 bg-[#e9e2d4] px-5 py-20 md:px-8 md:py-24">
         <div className="mx-auto max-w-[1240px]">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#a67a21]"><span className="h-px w-8 bg-[#a67a21]" />الخطة التدريبية</div>
-              <h2 className="font-[var(--font-display)] text-[clamp(30px,4vw,48px)] font-black leading-[1.2] tracking-[-.03em] text-[#182945]">البرنامج الذي<br /><span className="text-[#a67a21]">يبدأ منه التغيير.</span></h2>
+               <h2 className="font-[var(--font-display)] text-[clamp(30px,4vw,48px)] font-black leading-[1.2] tracking-[-.03em] text-[#182945]">الخطة التدريبية<br /><span className="text-[#a67a21]">شهراً بعد شهر.</span></h2>
             </div>
-            <p className="max-w-[310px] text-[13px] leading-7 text-[#6d716b]">تصفح البرامج حسب الشهر أو ابحث عن المهارة التي تحتاجها مؤسستك الآن.</p>
+             <p className="max-w-[310px] text-[13px] leading-7 text-[#6d716b]">اختر الشهر لتظهر لك مواعيد البرامج، المدن، وطريقة الحضور في مكان واحد.</p>
           </div>
 
           <div className="mt-12 rounded-[26px] border border-[#d8d0c2] bg-[#f8f4eb] p-4 shadow-[0_12px_25px_rgba(31,43,62,.04)] md:p-5">

@@ -33,7 +33,6 @@ type Program = {
   mode: Mode;
   city: string;
   days: number;
-  price: string;
   overview: string;
   axes: string[];
   audience: string;
@@ -52,7 +51,6 @@ const programs: Program[] = [
     mode: "حضوري",
     city: "تركيا - إسطنبول",
     days: 5,
-    price: "10,900 ريال للتدريب",
     overview: "برنامج حضوري متقدم يُعقد في إسطنبول، يؤهل القيادات لاستشراف المستقبل وبناء الجاهزية المؤسسية للتعامل مع المتغيرات والفرص القادمة.",
     axes: ["مفاهيم الاستشراف الاستراتيجي", "أدوات ومنهجيات استشراف المستقبل", "بناء سيناريوهات مستقبلية", "تحويل الاستشراف إلى خطط تنفيذية", "قياس الجاهزية المؤسسية للمستقبل"],
     audience: "القيادات الاستراتيجية العليا، مسؤولو التخطيط والابتكار المؤسسي.",
@@ -69,7 +67,6 @@ const programs: Program[] = [
     mode: "حضوري",
     city: "جدة",
     days: 3,
-    price: "1,200 ريال",
     overview: "برنامج يؤهل المشاركين لبناء استراتيجية الموارد البشرية وربطها بالتوجهات الاستراتيجية العامة للمؤسسة، بما يحقق التوافق بين رأس المال البشري وأهداف الأعمال.",
     axes: ["مدخل إلى التخطيط الاستراتيجي للموارد البشرية", "تحليل احتياجات القوى العاملة", "التخطيط للاستقطاب والاستبقاء", "ربط استراتيجية الموارد البشرية بأهداف المؤسسة", "قياس أثر استراتيجية الموارد البشرية"],
     audience: "مسؤولو ومديرو الموارد البشرية، فرق التخطيط المؤسسي.",
@@ -86,7 +83,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 3,
-    price: "2,200 ريال حضوري / 1,840 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار محترف الأعمال (CBP) يطوّر مهارات القيادة الإدارية العملية: التخطيط، اتخاذ القرار، وإدارة فرق العمل بكفاءة في بيئات العمل المؤسسية.",
     axes: ["أساسيات القيادة الإدارية", "اتخاذ القرار وحل المشكلات", "إدارة وتحفيز فرق العمل", "التفويض والمساءلة", "قياس الأداء القيادي"],
     audience: "المدراء ورؤساء الأقسام والقيادات الإدارية الطموحة للحصول على اعتماد CBP.",
@@ -103,7 +99,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "3,500 ريال حضوري / 3,165 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP يؤهل المشاركين لإدارة المشاريع باحتراف وفق أفضل الممارسات العالمية، من التخطيط وحتى التسليم والإغلاق.",
     axes: ["دورة حياة المشروع", "تخطيط النطاق والجدول الزمني", "إدارة الموارد والتكلفة", "إدارة المخاطر في المشاريع", "المتابعة والتقييم والإغلاق"],
     audience: "مديرو المشاريع ومنسقوها، فرق التخطيط والتنفيذ، الراغبون في اعتماد CBP.",
@@ -120,7 +115,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 3,
-    price: "1,200 ريال حضوري / 800 ريال عن بعد",
     overview: "برنامج متخصص يؤهل المشاركين لتحديد المخاطر المؤسسية وتقييمها ووضع خطط للاستجابة لها، بما يحمي المؤسسة ويعزز استمرارية أعمالها.",
     axes: ["مدخل إلى إدارة المخاطر المؤسسية", "تحديد وتصنيف المخاطر", "تقييم وتحليل المخاطر", "استراتيجيات الاستجابة للمخاطر", "متابعة ومراجعة سجل المخاطر"],
     audience: "مسؤولو إدارة المخاطر، فرق التدقيق والامتثال والجودة.",
@@ -137,7 +131,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "جدة",
     days: 3,
-    price: "2,200 ريال حضوري / 1,840 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP يطوّر مهارات التعامل مع العملاء وإدارة تجربتهم، بما يرفع مستوى الرضا والولاء تجاه المؤسسة.",
     axes: ["أساسيات خدمة العملاء الاحترافية", "فهم احتياجات وتوقعات العميل", "التعامل مع الشكاوى والاعتراضات", "قياس رضا العملاء", "بناء ولاء العملاء طويل الأمد"],
     audience: "فرق خدمة العملاء، مراكز الاتصال، موظفو التواصل المباشر مع الجمهور.",
@@ -154,7 +147,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 3,
-    price: "1,350 ريال حضوري / 1,200 ريال عن بعد",
     overview: "برنامج متخصص يؤهل المشاركين لتطبيق معايير الصحة والسلامة المهنية داخل بيئات العمل المختلفة، والحد من الحوادث والإصابات.",
     axes: ["أساسيات الصحة والسلامة المهنية", "تقييم مخاطر بيئة العمل", "إجراءات الوقاية والسلامة", "التعامل مع الحوادث والطوارئ", "أنظمة السلامة المحلية والدولية"],
     audience: "مسؤولو السلامة، مشرفو المواقع والعمليات.",
@@ -171,7 +163,6 @@ const programs: Program[] = [
     mode: "عن بعد",
     city: "عن بُعد",
     days: 5,
-    price: "7,300 ريال شهادة احترافية / 1,200 ريال شهادة محلية",
     overview: "برنامج احترافي يؤهل المشاركين لفهم منظومة الحوكمة وإدارة المخاطر والالتزام (GRC) وتطبيقها داخل المؤسسات، بما يعزز قدرة الجهة على الامتثال للأنظمة وحماية أصولها.",
     axes: ["مدخل إلى الحوكمة المؤسسية", "أطر إدارة المخاطر المؤسسية", "بناء برنامج الالتزام التنظيمي", "الربط بين الحوكمة والمخاطر والالتزام", "دراسات حالة تطبيقية GRC"],
     audience: "مسؤولو الحوكمة والامتثال، إدارات المخاطر، القيادات الإدارية العليا.",
@@ -188,7 +179,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 3,
-    price: "950 ريال شهادة محلية",
     overview: "برنامج عملي مكثف يعرّف المشاركين على أبرز أدوات الذكاء الاصطناعي التوليدي وتطبيقاتها العملية لرفع الإنتاجية اليومية في بيئة العمل المكتبي والإداري.",
     axes: ["مقدمة في أدوات الذكاء الاصطناعي التوليدي", "أتمتة المهام الإدارية المتكررة", "صياغة الأوامر (Prompting) الفعالة", "تطبيقات عملية على مهام العمل اليومية", "اعتبارات الاستخدام الآمن والأخلاقي"],
     audience: "الموظفون الإداريون، فرق التسويق والمحتوى، أي موظف يسعى لرفع كفاءته باستخدام الذكاء الاصطناعي.",
@@ -205,7 +195,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "3,500 ريال حضوري / 3,165 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP يؤهل المشاركين لإدارة المشاريع باحتراف وفق أفضل الممارسات العالمية، من التخطيط وحتى التسليم والإغلاق.",
     axes: ["دورة حياة المشروع", "تخطيط النطاق والجدول الزمني", "إدارة الموارد والتكلفة", "إدارة المخاطر في المشاريع", "المتابعة والتقييم والإغلاق"],
     audience: "مديرو المشاريع ومنسقوها، فرق التخطيط والتنفيذ، الراغبون في اعتماد CBP.",
@@ -222,7 +211,6 @@ const programs: Program[] = [
     mode: "عن بعد",
     city: "عن بُعد",
     days: 5,
-    price: "11,525 ريال شهادة احترافية / 1,500 ريال شهادة محلية",
     overview: "برنامج تقني معتمد يؤهل المشاركين لفهم أساسيات الأمن السيبراني والحصول على شهادة CompTIA Security+ الدولية، عبر التدريب عن بُعد.",
     axes: ["مفاهيم الأمن السيبراني الأساسية", "التهديدات والهجمات الشائعة", "أمن الشبكات والأنظمة", "إدارة الهوية والوصول", "التحضير لاختبار Security+"],
     audience: "العاملون في تقنية المعلومات، الراغبون في دخول مجال الأمن السيبراني.",
@@ -239,7 +227,6 @@ const programs: Program[] = [
     mode: "حضوري",
     city: "المجر - بودابست",
     days: 5,
-    price: "10,400 ريال للتدريب (شهادة احترافية)",
     overview: "برنامج حضوري مكثف يؤهل المشاركين للحصول على شهادة CompTIA Network+ الدولية، مع تدريب عملي على تصميم الشبكات وإدارتها واستكشاف أعطالها.",
     axes: ["أساسيات الشبكات ومكوناتها", "بروتوكولات الشبكات", "تصميم وتهيئة الشبكات", "استكشاف أعطال الشبكات وإصلاحها", "التحضير لاختبار Network+"],
     audience: "فنيو ومهندسو الشبكات، العاملون في الدعم الفني وتقنية المعلومات.",
@@ -256,7 +243,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 4,
-    price: "5,900 ريال شهادة احترافية / 1,300 ريال شهادة محلية",
     overview: "برنامج عملي يؤهل المشاركين لاستخدام أداة Power BI في تحليل البيانات وبناء لوحات معلومات تفاعلية تدعم اتخاذ القرار المؤسسي.",
     axes: ["مدخل إلى Power BI وربط مصادر البيانات", "تنظيف البيانات وتحويلها", "بناء التقارير ولوحات المعلومات", "التصور البياني الفعال للبيانات", "نشر التقارير ومشاركتها"],
     audience: "محللو البيانات، فرق التقارير والأداء، أي موظف يتعامل مع البيانات بشكل دوري.",
@@ -273,7 +259,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الخبر",
     days: 5,
-    price: "1,800 ريال (شهادة دولية)",
     overview: "برنامج معتمد وفق معايير OSHA الدولية يؤهل المشاركين لفهم أسس الصحة والسلامة المهنية وتطبيقها في بيئات العمل المختلفة.",
     axes: ["مبادئ الصحة والسلامة المهنية", "تحديد وتقييم المخاطر في موقع العمل", "معدات الوقاية الشخصية", "التعامل مع حالات الطوارئ", "متطلبات الامتثال لمعايير OSHA"],
     audience: "مسؤولو السلامة، مشرفو المواقع، فرق الموارد البشرية والعمليات.",
@@ -290,7 +275,6 @@ const programs: Program[] = [
     mode: "حضوري",
     city: "ماليزيا - كوالالمبور",
     days: 3,
-    price: "2,100 ريال للتدريب",
     overview: "برنامج حضوري يؤهل القيادات لبناء الخطط الاستراتيجية المؤسسية وربطها بأطر الحوكمة، بما يضمن التنفيذ الفعّال وتحقيق الأهداف المؤسسية.",
     axes: ["منهجية التخطيط الاستراتيجي", "تحليل البيئة الداخلية والخارجية", "بناء الأهداف والمبادرات الاستراتيجية", "الحوكمة المؤسسية ودورها في التنفيذ", "متابعة الأداء الاستراتيجي"],
     audience: "القيادات العليا والوسطى، مسؤولو التخطيط والتطوير المؤسسي.",
@@ -307,7 +291,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "3,500 ريال حضوري / 3,280 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP موجّه للشباب الراغبين في دخول عالم ريادة الأعمال، يغطي أساسيات بناء المشروع من الفكرة وحتى الانطلاق.",
     axes: ["مدخل إلى ريادة الأعمال", "بناء نموذج العمل التجاري", "دراسة الجدوى الأولية", "التسويق للمشاريع الناشئة", "التمويل ومصادره للمشاريع الناشئة"],
     audience: "الشباب وأصحاب الأفكار الريادية، الراغبون في تأسيس مشاريعهم الخاصة.",
@@ -324,7 +307,6 @@ const programs: Program[] = [
     mode: "حضوري",
     city: "بريطانيا - لندن",
     days: 3,
-    price: "2,900 ريال للتدريب",
     overview: "برنامج حضوري متقدم يُعقد في لندن، يركز على تطوير مهارات القيادة في إدارة أداء الأفراد والفرق وربطه بتحقيق النتائج المؤسسية المستهدفة.",
     axes: ["أسس إدارة الأداء المؤسسي", "تحديد مؤشرات الأداء الرئيسية KPIs", "حوارات الأداء والتغذية الراجعة", "معالجة تدني الأداء", "ربط الأداء بالنتائج الاستراتيجية"],
     audience: "القيادات التنفيذية والإدارية، مسؤولو تقييم الأداء المؤسسي.",
@@ -341,7 +323,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "4,100 ريال شهادة احترافية / 2,000 ريال شهادة محلية",
     overview: "برنامج معتمد لإدارة المشاريع الاحترافية (PMP) يؤهل المشاركين لتطبيق منهجيات إدارة المشاريع الحديثة من التخطيط وحتى التسليم.",
     axes: ["دورة حياة المشروع الاحترافية", "تخطيط وجدولة المشاريع", "إدارة الموارد والميزانية", "إدارة الجودة والمخاطر", "إغلاق المشروع وتوثيق الدروس المستفادة"],
     audience: "مديرو ومنسقو المشاريع، الراغبون في اعتماد PMP.",
@@ -358,7 +339,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "9,300 ريال شهادة احترافية / 1,400 ريال شهادة محلية",
     overview: "برنامج تقني معتمد يؤهل المشاركين للحصول على شهادة CompTIA A+ الدولية، ويغطي أساسيات صيانة الأجهزة والأنظمة والدعم الفني.",
     axes: ["مكونات الحاسب الآلي وصيانتها", "أنظمة التشغيل الشائعة", "استكشاف الأعطال وإصلاحها", "أساسيات الشبكات والاتصال", "التحضير لاختبار CompTIA A+"],
     audience: "فنيو الدعم الفني، الراغبون في دخول مجال تقنية المعلومات.",
@@ -375,7 +355,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "جدة",
     days: 3,
-    price: "2,200 ريال حضوري / 1,840 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP يطوّر مهارات التعامل مع العملاء وإدارة تجربتهم، بما يرفع مستوى الرضا والولاء تجاه المؤسسة.",
     axes: ["أساسيات خدمة العملاء الاحترافية", "فهم احتياجات وتوقعات العميل", "التعامل مع الشكاوى والاعتراضات", "قياس رضا العملاء", "بناء ولاء العملاء طويل الأمد"],
     audience: "فرق خدمة العملاء، مراكز الاتصال، موظفو التواصل المباشر مع الجمهور.",
@@ -392,7 +371,6 @@ const programs: Program[] = [
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
-    price: "3,300 ريال حضوري / 3,165 ريال عن بعد",
     overview: "برنامج معتمد ضمن مسار CBP يؤهل المشاركين لإدارة الجوانب التقنية للحاسب الآلي داخل بيئة العمل المؤسسية، من الأجهزة إلى الأنظمة والدعم الفني.",
     axes: ["أساسيات تكنولوجيا المعلومات المؤسسية", "إدارة الأجهزة والأنظمة", "الدعم الفني لمستخدمي الأعمال", "أمن المعلومات الأساسي", "اعتماد أفضل الممارسات التقنية"],
     audience: "فرق تقنية المعلومات والدعم الفني في المؤسسات.",
@@ -439,8 +417,7 @@ function ProgramCard({ program, onOpen }: { program: Program; onOpen: () => void
         <span className="inline-flex items-center gap-1.5"><MapPin size={14} />{program.city}</span>
         <span className="inline-flex items-center gap-1.5"><Clock3 size={14} />{program.days} أيام</span>
       </div>
-      <div className="mt-auto flex items-center justify-between border-t border-dashed border-[#e2ded4] pt-4">
-        <span className="max-w-[190px] text-[12px] font-bold leading-5 text-[#6c6f69]">{program.price}</span>
+      <div className="mt-auto flex items-center justify-end border-t border-dashed border-[#e2ded4] pt-4">
         <span className="inline-flex items-center gap-1 text-[13px] font-black text-[#182945] transition duration-300 group-hover:gap-2 group-hover:text-[#ac811e]">
           عرض التفاصيل <ArrowLeft size={15} />
         </span>
@@ -460,6 +437,8 @@ export function TrainingPlatform() {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [formPhone, setFormPhone] = useState("");
+  const [interestSubmitting, setInterestSubmitting] = useState(false);
+  const [interestError, setInterestError] = useState("");
 
   const filteredPrograms = useMemo(() => {
     const normalizedQuery = normalize(query);
@@ -483,11 +462,38 @@ export function TrainingPlatform() {
     setSelectedId(null);
     setInterestProgram(program);
     setInterestSent(false);
+    setInterestError("");
   };
-  const submitInterest = (event: FormEvent<HTMLFormElement>) => {
+  const submitInterest = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formName.trim() || !formEmail.trim() || !formPhone.trim()) return;
-    setInterestSent(true);
+    if (!interestProgram) return;
+    setInterestSubmitting(true);
+    setInterestError("");
+    try {
+      const response = await fetch("/api/interest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formName.trim(),
+          email: formEmail.trim(),
+          phone: formPhone.trim(),
+          program: interestProgram.name,
+          date: interestProgram.date,
+          city: interestProgram.city,
+          mode: interestProgram.mode,
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(typeof result.message === "string" ? result.message : "تعذر إرسال الطلب حالياً.");
+      }
+      setInterestSent(true);
+    } catch (error) {
+      setInterestError(error instanceof Error ? error.message : "تعذر إرسال الطلب حالياً. حاول مرة أخرى.");
+    } finally {
+      setInterestSubmitting(false);
+    }
   };
 
   return (
@@ -646,7 +652,16 @@ export function TrainingPlatform() {
 
        <section className="bg-[#182945] px-5 py-20 text-[#f8f1df] md:px-8 md:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-[1fr_auto] md:items-center">
-           <div><div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#e4c774]"><span className="h-px w-8 bg-[#e4c774]" />للتسجيل والاستفسار</div><h2 className="max-w-[680px] font-[var(--font-display)] text-[clamp(29px,4vw,47px)] font-black leading-[1.25]">لمزيد من التفاصيل<br /><span className="text-[#e4c774]">تواصل مع قسم المبيعات.</span></h2><p className="mt-5 max-w-[580px] text-[14px] leading-7 text-[#bec6d0]">للتسجيل في البرامج التدريبية والاستفسار عن المواعيد والرسوم، يسعد فريق المبيعات بخدمتكم.</p><div className="mt-5 flex flex-wrap gap-3 text-[14px] font-black text-[#f6e7b8]"><a href="tel:0595928796" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928812</a></div><a href="https://www.sohoolalrowad.com/categories/ltkny-o-lamn-lsybr-ny-ai" target="_blank" rel="noreferrer" className="mt-5 inline-flex max-w-full items-center gap-2 rounded-2xl border border-[#d7b45b]/45 bg-[#d7b45b]/10 px-4 py-3 text-[12px] font-bold leading-6 text-[#f6e7b8] transition hover:border-[#d7b45b] hover:bg-[#d7b45b]/20"><ExternalLink size={16} className="shrink-0" /><span>لمزيد من البرامج التدريبية، سجّل في المنصة التدريبية لمعهد سهول الرواد العالي للتدريب</span></a></div>
+           <div>
+             <div className="mb-4 flex items-center gap-3 text-[11px] font-black tracking-[.15em] text-[#e4c774]"><span className="h-px w-8 bg-[#e4c774]" />للتسجيل والاستفسار</div>
+             <h2 className="max-w-[680px] font-[var(--font-display)] text-[clamp(29px,4vw,47px)] font-black leading-[1.25]">لمزيد من التفاصيل<br /><span className="text-[#e4c774]">تواصل مع قسم المبيعات.</span></h2>
+             <p className="mt-5 max-w-[580px] text-[14px] leading-7 text-[#bec6d0]">للتسجيل في البرامج التدريبية والاستفسار عن المواعيد، يسعد فريق المبيعات بخدمتكم.</p>
+             <a href="https://www.sohoolalrowad.com/" target="_blank" rel="noreferrer" className="mt-5 inline-flex max-w-full items-center gap-2 rounded-2xl border border-[#d7b45b]/45 bg-[#d7b45b]/10 px-4 py-3 text-[12px] font-bold leading-6 text-[#f6e7b8] transition hover:border-[#d7b45b] hover:bg-[#d7b45b]/20"><ExternalLink size={16} className="shrink-0" /><span>لمزيد من البرامج التدريبية، سجّل في المنصة التدريبية لمعهد سهول الرواد العالي للتدريب</span></a>
+             <div className="mt-4 flex flex-wrap gap-3 text-[14px] font-black text-[#f6e7b8]">
+               <a href="tel:0595928796" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928796</a>
+               <a href="tel:0595928812" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928812</a>
+             </div>
+           </div>
            <button type="button" onClick={scrollToPrograms} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7b45b] px-7 py-4 text-[13px] font-black text-[#182945] transition hover:-translate-y-1 hover:bg-[#efd181]">العودة إلى الخطة <ArrowLeft size={17} /></button>
         </div>
       </section>
@@ -677,7 +692,7 @@ export function TrainingPlatform() {
                 <div className="pt-7"><h3 className="flex items-center gap-2 font-[var(--font-display)] text-[18px] font-black text-[#182945]"><span className="h-5 w-1 rounded-full bg-[#d7b45b]" />محاور البرنامج</h3><ol className="mt-4 grid gap-3">{selectedProgram.axes.map((axis, index) => <li key={axis} className="flex items-start gap-3 text-[13px] leading-6 text-[#646c6a]"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#182945] font-[var(--font-display)] text-[11px] font-black text-[#e0bd65]">{String(index + 1).padStart(2, "0")}</span>{axis}</li>)}</ol></div>
               </div>
               <aside className="space-y-4">
-                <div className="rounded-[22px] border border-[#e0d9cb] bg-[#fffdf8] p-5"><h3 className="font-[var(--font-display)] text-[17px] font-black text-[#182945]">معلومات سريعة</h3><div className="mt-4 space-y-3 text-[12px]"><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">الفئة المستهدفة</span><b className="max-w-[150px] text-left leading-5 text-[#182945]">{selectedProgram.audience}</b></div><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">المدرب</span><b className="text-left text-[#182945]">فريق مدربين معتمدين</b></div><div className="flex justify-between gap-4"><span className="text-[#888a82]">الرسوم</span><b className="max-w-[160px] text-left leading-5 text-[#9b731e]">{selectedProgram.price}</b></div></div></div>
+                <div className="rounded-[22px] border border-[#e0d9cb] bg-[#fffdf8] p-5"><h3 className="font-[var(--font-display)] text-[17px] font-black text-[#182945]">معلومات سريعة</h3><div className="mt-4 space-y-3 text-[12px]"><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">الفئة المستهدفة</span><b className="max-w-[150px] text-left leading-5 text-[#182945]">{selectedProgram.audience}</b></div><div className="flex justify-between gap-4"><span className="text-[#888a82]">المدرب</span><b className="text-left text-[#182945]">فريق مدربين معتمدين</b></div></div></div>
                 <div className="rounded-[22px] bg-[#e9dfc4] p-5"><h3 className="font-[var(--font-display)] text-[16px] font-black text-[#182945]">يستهدف مهارات</h3><div className="mt-3 flex flex-wrap gap-2">{selectedProgram.tags.map((tag) => <span key={tag} className="rounded-full bg-[#f8f1df] px-3 py-1.5 text-[11px] font-bold text-[#7b601e]">{tag}</span>)}</div></div>
                 <div className="rounded-[22px] bg-[#182945] p-5 text-[#f8f1df]"><h3 className="font-[var(--font-display)] text-[17px] font-black">للتفاصيل والتسجيل</h3><p className="mt-2 text-[12px] leading-6 text-[#bfc8d4]">للتسجيل في البرنامج التدريبي أو معرفة التفاصيل، تواصل مع قسم المبيعات:</p><div className="mt-3 grid gap-2 text-[13px] font-black text-[#f4d982]"><a href="tel:0595928796" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928812</a></div><button type="button" onClick={() => openInterest(selectedProgram)} className="mt-4 w-full rounded-full bg-[#d7b45b] py-3 text-[12px] font-black text-[#182945] transition hover:bg-[#efd181]">سجّل اهتمامك</button></div>
               </aside>
@@ -691,7 +706,7 @@ export function TrainingPlatform() {
           <button type="button" aria-label="إغلاق نموذج الاهتمام" onClick={() => setInterestProgram(null)} className="absolute inset-0 cursor-default" />
           <div className="relative w-full max-w-[520px] rounded-t-[28px] bg-[#fffdf8] p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] md:rounded-[28px] md:p-8">
             <button type="button" onClick={() => setInterestProgram(null)} aria-label="إغلاق" className="absolute left-5 top-5 rounded-full p-2 text-[#73766f] transition hover:bg-[#eee7da] hover:text-[#182945]"><X size={18} /></button>
-            {interestSent ? <div className="py-8 text-center"><div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#dff0e9] text-[#256b63]"><Check size={30} /></div><h2 className="mt-5 font-[var(--font-display)] text-[24px] font-black text-[#182945]">وصل اهتمامك بنجاح</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-7 text-[#73766f]">شكراً {formName.split(" ")[0] || "لك"}، سيتواصل معك فريق سهول الرواد قريباً حول برنامج «{interestProgram.name}».</p><button type="button" onClick={() => setInterestProgram(null)} className="mt-7 rounded-full bg-[#182945] px-6 py-3 text-[12px] font-black text-[#f5e7bd]">تم</button></div> : <><div className="mb-7 border-b border-[#e2ded4] pb-5"><div className="text-[11px] font-black text-[#ae8123]">للتفاصيل والتسجيل</div><h2 className="mt-2 max-w-[390px] font-[var(--font-display)] text-[22px] font-black leading-8 text-[#182945]">{interestProgram.name}</h2><p className="mt-2 text-[12px] text-[#7b7d75]">{interestProgram.date} · {interestProgram.city}</p><div className="mt-3 flex flex-wrap gap-3 text-[12px] font-bold text-[#9b731e]"><a href="tel:0595928796">0595928796</a><a href="tel:0595928812">0595928812</a></div></div><form onSubmit={submitInterest} className="space-y-4"><label className="block text-[12px] font-bold text-[#555d5d]">الاسم الكامل<input required value={formName} onChange={(event) => setFormName(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="اكتب اسمك" /></label><label className="block text-[12px] font-bold text-[#555d5d]">البريد الإلكتروني<input required type="email" value={formEmail} onChange={(event) => setFormEmail(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="name@company.com" /></label><label className="block text-[12px] font-bold text-[#555d5d]">رقم الجوال<input required type="tel" value={formPhone} onChange={(event) => setFormPhone(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="05xxxxxxxx" /></label><button type="submit" className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#182945] py-3.5 text-[13px] font-black text-[#f5e7bd] transition hover:bg-[#243a60]">إرسال الاهتمام <ArrowLeft size={16} /></button></form></>}
+            {interestSent ? <div className="py-8 text-center"><div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#dff0e9] text-[#256b63]"><Check size={30} /></div><h2 className="mt-5 font-[var(--font-display)] text-[24px] font-black text-[#182945]">وصل اهتمامك بنجاح</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-7 text-[#73766f]">شكراً {formName.split(" ")[0] || "لك"}، تم إرسال بياناتك إلى قسم المبيعات وسيتواصل معك فريق سهول الرواد قريباً حول برنامج «{interestProgram.name}».</p><button type="button" onClick={() => setInterestProgram(null)} className="mt-7 rounded-full bg-[#182945] px-6 py-3 text-[12px] font-black text-[#f5e7bd]">تم</button></div> : <><div className="mb-7 border-b border-[#e2ded4] pb-5"><div className="text-[11px] font-black text-[#ae8123]">للتفاصيل والتسجيل</div><h2 className="mt-2 max-w-[390px] font-[var(--font-display)] text-[22px] font-black leading-8 text-[#182945]">{interestProgram.name}</h2><p className="mt-2 text-[12px] text-[#7b7d75]">{interestProgram.date} · {interestProgram.city}</p></div><form onSubmit={submitInterest} className="space-y-4"><label className="block text-[12px] font-bold text-[#555d5d]">الاسم الكامل<input required value={formName} onChange={(event) => setFormName(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="اكتب اسمك" /></label><label className="block text-[12px] font-bold text-[#555d5d]">البريد الإلكتروني<input required type="email" value={formEmail} onChange={(event) => setFormEmail(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="name@company.com" /></label><label className="block text-[12px] font-bold text-[#555d5d]">رقم الجوال<input required type="tel" value={formPhone} onChange={(event) => setFormPhone(event.target.value)} className="mt-2 h-11 w-full rounded-xl border border-[#ddd7ca] bg-[#f8f4eb] px-3 text-[13px] outline-none focus:border-[#b28a34] focus:ring-2 focus:ring-[#d7b45b]/25" placeholder="05xxxxxxxx" /></label><button disabled={interestSubmitting} type="submit" className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#182945] py-3.5 text-[13px] font-black text-[#f5e7bd] transition hover:bg-[#243a60] disabled:cursor-wait disabled:opacity-60">{interestSubmitting ? "جارٍ إرسال البيانات..." : "إرسال الاهتمام"} <ArrowLeft size={16} /></button>{interestError && <p role="alert" className="text-center text-[12px] font-bold leading-6 text-[#b4493e]">{interestError}</p>}<div className="rounded-2xl bg-[#f6f0e4] px-4 py-3 text-center text-[12px] font-bold text-[#73766f]"><span>للاستفسار المباشر: </span><a href="tel:0595928796" className="text-[#9b731e]">0595928796</a><span className="mx-1">أو</span><a href="tel:0595928812" className="text-[#9b731e]">0595928812</a></div></form></>}
           </div>
         </div>
       )}

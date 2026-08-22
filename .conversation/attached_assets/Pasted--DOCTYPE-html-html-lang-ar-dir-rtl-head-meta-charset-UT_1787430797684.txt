@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطة التدريبية | سهول الرواد للتدريب والتطوير</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#050d1f;
+    --navy-900:#0a1a3a;
+    --navy-800:#122654;
+    --navy-700:#1a3470;
+    --gold-500:#c9a227;
+    --gold-400:#e0bb45;
+    --gold-100:#f6ecc8;
+    --cream:#f6f4ee;
+    --ink:#0a1a3a;
+    --muted:#5b6580;
+    --line:rgba(10,26,58,0.10);
+    --online:#2f7d5e;
+    --onsite:#c9a227;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Almarai',sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-400);color:var(--navy-950);}
+
+  /* ===== Header ===== */
+  header.top{
+    background:linear-gradient(180deg,var(--navy-950) 0%,var(--navy-900) 100%);
+    color:#fff;
+    padding:28px 20px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  header.top::after{
+    content:"";
+    position:absolute;
+    inset:auto 0 0 0;
+    height:4px;
+    background:linear-gradient(90deg,var(--gold-500),var(--gold-400) 40%,transparent);
+  }
+  .brandbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:1180px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    gap:16px;
+    padding-bottom:22px;
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-mark{
+    width:46px;height:46px;border-radius:10px;
+    background:linear-gradient(135deg,var(--gold-500),var(--gold-400));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Tajawal',sans-serif;font-weight:900;color:var(--navy-950);
+    font-size:20px;
+    flex:none;
+  }
+  .brand-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:20px;letter-spacing:.2px;}
+  .brand-sub{font-size:12.5px;color:#b9c2dc;font-weight:400;margin-top:2px;}
+  .plan-title{
+    text-align:center;
+    padding:8px 0 30px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .plan-eyebrow{
+    font-family:'Tajawal',sans-serif;
+    font-size:12.5px;
+    letter-spacing:2px;
+    color:var(--gold-400);
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  .plan-heading{
+    font-family:'Tajawal',sans-serif;
+    font-weight:900;
+    font-size:clamp(26px,4vw,40px);
+    margin:8px 0 6px;
+  }
+  .plan-desc{color:#c7cfe6;font-size:14.5px;max-width:560px;margin:0 auto;line-height:1.9;}
+
+  .search-wrap{
+    max-width:460px;
+    margin:22px auto 0;
+    position:relative;
+    display:flex;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:100px;
+    padding:0 16px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .search-wrap:focus-within{
+    border-color:var(--gold-500);
+    background:rgba(255,255,255,0.12);
+  }
+  .search-wrap svg{flex:none;color:#9aa5c4;}
+  .search-input{
+    flex:1;
+    background:none;
+    border:none;
+    outline:none;
+    color:#fff;
+    font-family:'Almarai',sans-serif;
+    font-size:14px;
+    padding:12px 10px;
+  }
+  .search-input::placeholder{color:#8b96b8;}
+  .search-clear{
+    flex:none;
+    background:none;
+    border:none;
+    color:#9aa5c4;
+    font-size:13px;
+    cursor:pointer;
+    padding:6px;
+    display:none;
+    line-height:1;
+  }
+  .search-clear:hover{color:#fff;}
+  .search-wrap.has-text .search-clear{display:block;}
+
+  .results-note{
+    max-width:1180px;
+    margin:0 auto 22px;
+    padding:0 20px;
+    font-size:13.5px;
+    color:var(--muted);
+  }
+  .results-note b{color:var(--navy-900);}
+
+  /* ===== Month rail ===== */
+  .month-rail-wrap{
+    background:var(--navy-900);
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .month-rail{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    padding:14px 20px;
+    scrollbar-width:thin;
+  }
+  .month-rail::-webkit-scrollbar{height:5px;}
+  .month-rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.2);border-radius:10px;}
+  .month-chip{
+    flex:none;
+    font-family:'Tajawal',sans-serif;
+    font-size:13.5px;
+    font-weight:700;
+    color:#c7cfe6;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.10);
+    padding:9px 18px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .month-chip:hover{background:rgba(255,255,255,0.09);}
+  .month-chip.active{
+    background:var(--gold-500);
+    border-color:var(--gold-500);
+    color:var(--navy-950);
+  }
+  .month-chip .count{
+    opacity:.7;
+    font-weight:400;
+    font-size:11.5px;
+    margin-right:4px;
+  }
+  .month-chip.active .count{opacity:.6;}
+
+  /* ===== Main / list ===== */
+  main{max-width:1180px;margin:0 auto;padding:36px 20px 80px;}
+
+  .month-section{margin-bottom:44px;}
+  .month-section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .month-section-head h2{
+    font-family:'Tajawal',sans-serif;
+    font-size:20px;
+    font-weight:900;
+    color:var(--navy-900);
+    margin:0;
+  }
+  .month-section-head .tag{
+    font-size:12px;
+    color:var(--muted);
+    background:#fff;
+    border:1px solid var(--line);
+    padding:3px 10px;
+    border-radius:100px;
+  }
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:16px;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    cursor:pointer;
+    position:relative;
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 30px -14px rgba(10,26,58,0.25);
+    border-color:rgba(201,162,39,0.5);
+  }
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card-day{
+    flex:none;
+    width:52px;height:52px;
+    border-radius:10px;
+    background:var(--navy-950);
+    color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Tajawal',sans-serif;
+    line-height:1.1;
+  }
+  .card-day .num{font-size:18px;font-weight:900;}
+  .card-day .mon{font-size:9.5px;color:var(--gold-400);font-weight:700;}
+  .mode-pill{
+    font-size:11px;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .mode-onsite{background:rgba(201,162,39,0.13);color:#8a6a10;}
+  .mode-online{background:rgba(47,125,94,0.13);color:var(--online);}
+  .mode-hybrid{background:rgba(26,52,112,0.10);color:var(--navy-700);}
+
+  .card-price{
+    font-family:'Tajawal',sans-serif;
+    font-weight:800;
+    font-size:13px;
+    color:var(--navy-900);
+    text-align:left;
+    line-height:1.5;
+  }
+  .card-price .unit{font-size:10.5px;font-weight:400;color:var(--muted);}
+
+  .card-name{
+    font-family:'Tajawal',sans-serif;
+    font-weight:900;
+    font-size:16.5px;
+    color:var(--navy-900);
+    line-height:1.5;
+  }
+
+  .card-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 16px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .card-meta span{display:flex;align-items:center;gap:5px;}
+  .card-meta svg{flex:none;opacity:.65;}
+
+  .card-foot{
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+  }
+  .card-cta{
+    font-family:'Tajawal',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:var(--navy-900);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .card:hover .card-cta{color:var(--gold-500);}
+  .card-cta svg{transition:transform .16s ease;}
+  .card:hover .card-cta svg{transform:translateX(-4px);}
+  .card-days-badge{font-size:12px;color:var(--muted);}
+
+  .empty{
+    text-align:center;
+    padding:70px 20px;
+    color:var(--muted);
+  }
+  .empty h3{font-family:'Tajawal',sans-serif;color:var(--navy-900);}
+
+  /* ===== Detail Page ===== */
+  #detailView{display:none;}
+  .detail-hero{
+    background:linear-gradient(180deg,var(--navy-950), var(--navy-800));
+    color:#fff;
+    padding:26px 20px 40px;
+    position:relative;
+  }
+  .detail-hero::after{
+    content:"";
+    position:absolute;inset:auto 0 0 0;height:4px;
+    background:linear-gradient(90deg,var(--gold-500),var(--gold-400) 40%,transparent);
+  }
+  .detail-wrap{max-width:980px;margin:0 auto;}
+  .back-btn{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16);
+    color:#fff;
+    font-family:'Tajawal',sans-serif;
+    font-size:13.5px;
+    font-weight:700;
+    padding:9px 16px;
+    border-radius:100px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:22px;
+    transition:background .15s ease;
+  }
+  .back-btn:hover{background:rgba(255,255,255,0.16);}
+  .detail-eyebrow{
+    display:flex;gap:10px;align-items:center;
+    font-family:'Tajawal',sans-serif;
+    font-size:12.5px;color:var(--gold-400);font-weight:700;
+    letter-spacing:1px;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .detail-heading{
+    font-family:'Tajawal',sans-serif;
+    font-weight:900;
+    font-size:clamp(24px,3.6vw,34px);
+    line-height:1.35;
+    max-width:760px;
+  }
+  .detail-quickstats{
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;
+  }
+  .qs{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:12px;
+    padding:12px 16px;
+    min-width:120px;
+  }
+  .qs .l{font-size:11px;color:#a9b3d1;margin-bottom:4px;}
+  .qs .v{font-family:'Tajawal',sans-serif;font-weight:700;font-size:14.5px;}
+
+  .detail-body{
+    max-width:980px;margin:0 auto;
+    padding:40px 20px 90px;
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:30px;
+  }
+  @media(max-width:760px){.detail-body{grid-template-columns:1fr;}}
+
+  .panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px;
+    margin-bottom:22px;
+  }
+  .panel h3{
+    font-family:'Tajawal',sans-serif;
+    font-size:16.5px;
+    font-weight:900;
+    color:var(--navy-900);
+    margin:0 0 14px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .panel h3::before{
+    content:"";
+    width:5px;height:18px;
+    background:var(--gold-500);
+    border-radius:3px;
+    display:inline-block;
+  }
+  .panel p{color:#3f4964;line-height:2;font-size:14.5px;margin:0;}
+
+  .axis-list{list-style:none;margin:0;padding:0;counter-reset:axis;}
+  .axis-list li{
+    counter-increment:axis;
+    display:flex;gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+    color:#3f4964;
+    line-height:1.8;
+  }
+  .axis-list li:last-child{border-bottom:none;}
+  .axis-list li::before{
+    content:counter(axis, arabic-indic);
+    flex:none;
+    width:26px;height:26px;
+    border-radius:8px;
+    background:var(--navy-950);
+    color:var(--gold-400);
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .side-fact{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13.5px;
+  }
+  .side-fact:last-child{border-bottom:none;}
+  .side-fact .k{color:var(--muted);}
+  .side-fact .v{font-family:'Tajawal',sans-serif;font-weight:700;color:var(--navy-900);}
+
+  .tags-wrap{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag-chip{
+    font-size:12.5px;
+    background:var(--gold-100);
+    color:#7a5c0d;
+    padding:6px 12px;
+    border-radius:100px;
+    font-weight:700;
+  }
+
+  .cta-panel{
+    background:linear-gradient(135deg,var(--navy-950),var(--navy-800));
+    color:#fff;
+    text-align:center;
+  }
+  .cta-panel h3::before{display:none;}
+  .cta-panel h3{justify-content:center;color:#fff;}
+  .cta-panel p{color:#c7cfe6;margin-bottom:16px;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--gold-500);
+    color:var(--navy-950);
+    font-family:'Tajawal',sans-serif;
+    font-weight:800;
+    font-size:14px;
+    padding:12px 26px;
+    border-radius:100px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+  }
+
+  footer{
+    text-align:center;
+    padding:26px 20px;
+    color:var(--muted);
+    font-size:12.5px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ LIST VIEW ============ -->
+<div id="listView">
+  <header class="top">
+    <div class="brandbar">
+      <div class="brand">
+        <div class="brand-mark">سر</div>
+        <div>
+          <div class="brand-name">سهول الرواد للتدريب والتطوير</div>
+          <div class="brand-sub">Suhool Al-Ruwad Institute for Training</div>
+        </div>
+      </div>
+    </div>
+    <div class="plan-title">
+      <div class="plan-eyebrow">الخطة التدريبية</div>
+      <h1 class="plan-heading">جدول البرامج التدريبية الشهري</h1>
+      <p class="plan-desc">تصفح البرامج المعتمدة حسب الشهر، واضغط على أي برنامج للاطلاع على تفاصيله الكاملة: المحاور، الفئة المستهدفة، والمدرب المعتمد.</p>
+      <div class="search-wrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم البرنامج، المدينة، أو الجهة المنظمة...">
+        <button id="searchClear" class="search-clear" title="مسح البحث">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="month-rail-wrap">
+    <div class="month-rail" id="monthRail"></div>
+  </div>
+
+  <main id="mainContent"></main>
+
+  <footer>© سهول الرواد للتدريب والتطوير — الخطة التدريبية تُحدَّث دوريًا</footer>
+</div>
+
+<!-- ============ DETAIL VIEW ============ -->
+<div id="detailView">
+  <div class="detail-hero">
+    <div class="detail-wrap">
+      <button class="back-btn" onclick="showList()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg>
+        العودة إلى الخطة التدريبية
+      </button>
+      <div class="detail-eyebrow" id="detailEyebrow"></div>
+      <h1 class="detail-heading" id="detailHeading"></h1>
+      <div class="detail-quickstats" id="detailQuickStats"></div>
+    </div>
+  </div>
+
+  <div class="detail-body">
+    <div class="detail-main">
+      <div class="panel">
+        <h3>نبذة عن البرنامج</h3>
+        <p id="detailOverview"></p>
+      </div>
+      <div class="panel">
+        <h3>محاور البرنامج</h3>
+        <ul class="axis-list" id="detailAxes"></ul>
+      </div>
+      <div class="panel">
+        <h3>الفئة المستهدفة</h3>
+        <p id="detailAudience"></p>
+      </div>
+    </div>
+    <div class="detail-side">
+      <div class="panel">
+        <h3>معلومات سريعة</h3>
+        <div id="detailFacts"></div>
+      </div>
+      <div class="panel">
+        <h3>يستهدف مهارات</h3>
+        <div class="tags-wrap" id="detailTags"></div>
+      </div>
+      <div class="panel cta-panel">
+        <h3>للتسجيل والاستفسار</h3>
+        <p>تواصل مع فريق سهول الرواد لحجز مقعدك أو معرفة التفاصيل الإدارية</p>
+        <button class="cta-btn" onclick="alert('يرجى التواصل مع إدارة التدريب لإتمام التسجيل')">سجّل اهتمامك</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   كتالوج البرامج — الوصف الثابت لكل برنامج (نبذة/محاور/فئة مستهدفة)
+   يُستخدم أكثر من مرة لأن نفس البرنامج يُعقد في تواريخ مختلفة
+   ============================================================ */
+const CATALOG = {
+  "إدارة المخاطر والحوكمة والالتزام GRCP":{
+    overview:"برنامج احترافي يؤهل المشاركين لفهم منظومة الحوكمة وإدارة المخاطر والالتزام (GRC) وتطبيقها داخل المؤسسات، بما يعزز قدرة الجهة على الامتثال للأنظمة وحماية أصولها.",
+    axes:["مدخل إلى الحوكمة المؤسسية","أطر إدارة المخاطر المؤسسية","بناء برنامج الالتزام التنظيمي","الربط بين الحوكمة والمخاطر والالتزام","دراسات حالة تطبيقية GRC"],
+    audience:"مسؤولو الحوكمة والامتثال، إدارات المخاطر، القيادات الإدارية العليا.",
+    tags:["حوكمة","إدارة مخاطر","التزام"]
+  },
+  "محترف أعمال القيادة الإدارية CBP":{
+    overview:"برنامج معتمد ضمن مسار محترف الأعمال (CBP) يطوّر مهارات القيادة الإدارية العملية: التخطيط، اتخاذ القرار، وإدارة فرق العمل بكفاءة في بيئات العمل المؤسسية.",
+    axes:["أساسيات القيادة الإدارية","اتخاذ القرار وحل المشكلات","إدارة وتحفيز فرق العمل","التفويض والمساءلة","قياس الأداء القيادي"],
+    audience:"المدراء ورؤساء الأقسام والقيادات الإدارية الطموحة للحصول على اعتماد CBP.",
+    tags:["قيادة","إدارة","CBP"]
+  },
+  "أدوات الذكاء الاصطناعي للإنتاجية في بيئة العمل":{
+    overview:"برنامج عملي مكثف يعرّف المشاركين على أبرز أدوات الذكاء الاصطناعي التوليدي وتطبيقاتها العملية لرفع الإنتاجية اليومية في بيئة العمل المكتبي والإداري.",
+    axes:["مقدمة في أدوات الذكاء الاصطناعي التوليدي","أتمتة المهام الإدارية المتكررة","صياغة الأوامر (Prompting) الفعالة","تطبيقات عملية على مهام العمل اليومية","اعتبارات الاستخدام الآمن والأخلاقي"],
+    audience:"الموظفون الإداريون، فرق التسويق والمحتوى، أي موظف يسعى لرفع كفاءته باستخدام الذكاء الاصطناعي.",
+    tags:["ذكاء اصطناعي","إنتاجية","أدوات رقمية"]
+  },
+  "محترف أعمال إدارة المشاريع CBP":{
+    overview:"برنامج معتمد ضمن مسار CBP يؤهل المشاركين لإدارة المشاريع باحتراف وفق أفضل الممارسات العالمية، من التخطيط وحتى التسليم والإغلاق.",
+    axes:["دورة حياة المشروع","تخطيط النطاق والجدول الزمني","إدارة الموارد والتكلفة","إدارة المخاطر في المشاريع","المتابعة والتقييم والإغلاق"],
+    audience:"مديرو المشاريع ومنسقوها، فرق التخطيط والتنفيذ، الراغبون في اعتماد CBP.",
+    tags:["إدارة مشاريع","CBP","تخطيط"]
+  },
+  "أساسيات الأمن السيبراني CompTIA Security+":{
+    overview:"برنامج تقني معتمد يؤهل المشاركين لفهم أساسيات الأمن السيبراني والحصول على شهادة CompTIA Security+ الدولية، عبر التدريب عن بُعد.",
+    axes:["مفاهيم الأمن السيبراني الأساسية","التهديدات والهجمات الشائعة","أمن الشبكات والأنظمة","إدارة الهوية والوصول","التحضير لاختبار Security+"],
+    audience:"العاملون في تقنية المعلومات، الراغبون في دخول مجال الأمن السيبراني.",
+    tags:["أمن سيبراني","CompTIA","تقنية معلومات"]
+  },
+  "شهادة كومبتيا أساسيات الشبكات + CompTIA Network+":{
+    overview:"برنامج حضوري مكثف يؤهل المشاركين للحصول على شهادة CompTIA Network+ الدولية، مع تدريب عملي على تصميم الشبكات وإدارتها واستكشاف أعطالها.",
+    axes:["أساسيات الشبكات ومكوناتها","بروتوكولات الشبكات","تصميم وتهيئة الشبكات","استكشاف أعطال الشبكات وإصلاحها","التحضير لاختبار Network+"],
+    audience:"فنيو ومهندسو الشبكات، العاملون في الدعم الفني وتقنية المعلومات.",
+    tags:["شبكات","CompTIA","تقنية معلومات"]
+  },
+  "محترف أعمال خدمة العملاء CBP":{
+    overview:"برنامج معتمد ضمن مسار CBP يطوّر مهارات التعامل مع العملاء وإدارة تجربتهم، بما يرفع مستوى الرضا والولاء تجاه المؤسسة.",
+    axes:["أساسيات خدمة العملاء الاحترافية","فهم احتياجات وتوقعات العميل","التعامل مع الشكاوى والاعتراضات","قياس رضا العملاء","بناء ولاء العملاء طويل الأمد"],
+    audience:"فرق خدمة العملاء، مراكز الاتصال، موظفو التواصل المباشر مع الجمهور.",
+    tags:["خدمة عملاء","CBP","تجربة العميل"]
+  },
+  "تحليل البيانات باستخدام Power BI":{
+    overview:"برنامج عملي يؤهل المشاركين لاستخدام أداة Power BI في تحليل البيانات وبناء لوحات معلومات تفاعلية تدعم اتخاذ القرار المؤسسي.",
+    axes:["مدخل إلى Power BI وربط مصادر البيانات","تنظيف البيانات وتحويلها","بناء التقارير ولوحات المعلومات","التصور البياني الفعال للبيانات","نشر التقارير ومشاركتها"],
+    audience:"محللو البيانات، فرق التقارير والأداء، أي موظف يتعامل مع البيانات بشكل دوري.",
+    tags:["تحليل بيانات","Power BI","اتخاذ قرار"]
+  },
+  "الصحة والسلامة المهنية OSHA":{
+    overview:"برنامج معتمد وفق معايير OSHA الدولية يؤهل المشاركين لفهم أسس الصحة والسلامة المهنية وتطبيقها في بيئات العمل المختلفة.",
+    axes:["مبادئ الصحة والسلامة المهنية"

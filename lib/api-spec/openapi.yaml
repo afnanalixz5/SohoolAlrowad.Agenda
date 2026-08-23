@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: registrations
+    description: Public course registration operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /registrations:
+    post:
+      operationId: createRegistration
+      tags: [registrations]
+      summary: Save a course registration
+      description: Records a public course registration submitted by a prospective trainee.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistrationInput"
+      responses:
+        "201":
+          description: Registration saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Registration"
+        "400":
+          description: Invalid registration data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Registration could not be saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,82 @@ components:
           type: string
       required:
         - status
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        program:
+          type: string
+        date:
+          type: string
+        city:
+          type: string
+        mode:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - email
+        - phone
+        - program
+        - date
+        - city
+        - mode
+        - createdAt
+    RegistrationInput:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 160
+        phone:
+          type: string
+          minLength: 7
+          maxLength: 40
+        program:
+          type: string
+          minLength: 2
+          maxLength: 240
+        date:
+          type: string
+          minLength: 1
+          maxLength: 40
+        city:
+          type: string
+          minLength: 1
+          maxLength: 120
+        mode:
+          type: string
+          minLength: 1
+          maxLength: 80
+      required:
+        - name
+        - email
+        - phone
+        - program
+        - date
+        - city
+        - mode
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
 

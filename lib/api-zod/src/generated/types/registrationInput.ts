@@ -5,21 +5,6 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
-
-export interface Registration {
-  id: number;
-  name: string;
-  email: string;
-  phone: string;
-  program: string;
-  date: string;
-  city: string;
-  mode: string;
-  createdAt: string;
-}
 
 export interface RegistrationInput {
   /**
@@ -55,8 +40,3 @@ export interface RegistrationInput {
      */
   mode: string;
 }
-
-export interface ErrorResponse {
-  message: string;
-}
-

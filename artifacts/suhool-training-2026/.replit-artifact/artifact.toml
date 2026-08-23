@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "الخطة التدريبية 2026"
+description = "A standalone Arabic RTL training-program landing page for Suhool Al-Ruwad Institute, with searchable course listings, program details, and a persistent registration flow."
+version = "1.0.0"
+id = "artifacts/suhool-training-2026"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18785
+
+[services.development]
+run = "pnpm --filter @workspace/suhool-training-2026 run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/suhool-training-2026", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/suhool-training-2026/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18785"
+BASE_PATH = "/"

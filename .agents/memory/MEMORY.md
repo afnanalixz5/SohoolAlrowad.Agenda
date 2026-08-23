@@ -1,2 +1,3 @@
 - [Resend sender verification](resend-sender.md) — reliable delivery requires a verified custom sending domain, not a consumer mailbox sender.
 - [Canvas frame recovery](canvas-state-recovery.md) — restore a selected mockup as a new live iframe when board state reports zero shapes.
+- [Orval and Zod compatibility](orval-zod-compatibility.md) — avoid Zod 4-only OpenAPI generation while this workspace uses Zod v3.

@@ -70,7 +70,7 @@ components:
       type: object
       properties:
         id:
-          type: integer
+          type: number
         name:
           type: string
         email:
@@ -107,7 +107,6 @@ components:
           maxLength: 120
         email:
           type: string
-          format: email
           maxLength: 160
         phone:
           type: string

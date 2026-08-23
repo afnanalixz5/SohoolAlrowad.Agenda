@@ -42,7 +42,7 @@ export const createRegistrationBodyModeMax = 80;
 
 export const CreateRegistrationBody = zod.object({
   "name": zod.string().min(createRegistrationBodyNameMin).max(createRegistrationBodyNameMax),
-  "email": zod.email().max(createRegistrationBodyEmailMax),
+  "email": zod.string().max(createRegistrationBodyEmailMax),
   "phone": zod.string().min(createRegistrationBodyPhoneMin).max(createRegistrationBodyPhoneMax),
   "program": zod.string().min(createRegistrationBodyProgramMin).max(createRegistrationBodyProgramMax),
   "date": zod.string().min(1).max(createRegistrationBodyDateMax),
@@ -51,7 +51,7 @@ export const CreateRegistrationBody = zod.object({
 })
 
 export const CreateRegistrationResponse = zod.object({
-  "id": zod.int(),
+  "id": zod.number(),
   "name": zod.string(),
   "email": zod.string(),
   "phone": zod.string(),

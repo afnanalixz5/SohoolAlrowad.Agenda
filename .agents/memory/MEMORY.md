@@ -1,0 +1,2 @@
+- [Resend sender verification](resend-sender.md) — reliable delivery requires a verified custom sending domain, not a consumer mailbox sender.
+- [Canvas frame recovery](canvas-state-recovery.md) — restore a selected mockup as a new live iframe when board state reports zero shapes.

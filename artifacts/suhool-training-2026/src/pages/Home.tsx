@@ -538,9 +538,7 @@ export function Home() {
     <main dir="rtl" className="min-h-[100dvh] overflow-x-hidden bg-[#f4efe5] text-[#182945]" style={{ fontFamily: "var(--font-sans, 'Tahoma', sans-serif)", ["--font-display" as string]: "var(--font-sans, 'Tahoma', sans-serif)" }}>
       <style>{`
         @keyframes suhool-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes suhool-drift { from { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-10px,0); } to { transform: translate3d(0,0,0); } }
         .suhool-rise { animation: suhool-rise .7s cubic-bezier(.2,.7,.2,1) both; }
-        .suhool-drift { animation: suhool-drift 8s ease-in-out infinite; }
         .suhool-delay-1 { animation-delay: .1s; } .suhool-delay-2 { animation-delay: .2s; } .suhool-delay-3 { animation-delay: .3s; }
         .suhool-grid { background-image: linear-gradient(rgba(236,222,190,.19) 1px, transparent 1px), linear-gradient(90deg, rgba(236,222,190,.19) 1px, transparent 1px); background-size: 28px 28px; }
         ::selection { background: #d9b65c; color: #182945; }
@@ -552,8 +550,6 @@ export function Home() {
 
       <header className="relative isolate overflow-hidden bg-[#101f38] text-[#faf5e9]">
         <div className="absolute inset-0 -z-10 opacity-50 suhool-grid" />
-        <div className="absolute -left-20 top-16 -z-10 h-72 w-72 rounded-full bg-[#c89e45]/20 blur-3xl suhool-drift" />
-        <div className="absolute right-[46%] top-4 -z-10 h-40 w-40 rounded-full border border-[#caa650]/25" />
         <div className="mx-auto max-w-[1240px] px-5 md:px-8">
           <nav className="flex min-h-[82px] items-center justify-between gap-5 border-b border-white/10">
              <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 text-right focus:outline-none focus:ring-2 focus:ring-[#d7b45b] focus:ring-offset-2 focus:ring-offset-[#101f38]">
@@ -600,9 +596,7 @@ export function Home() {
               </div>
             </div>
             <div className="relative mx-auto w-full max-w-[450px] suhool-rise suhool-delay-2">
-              <div className="absolute -right-6 -top-7 h-28 w-28 rounded-full border border-[#d7b45b]/30" />
               <div className="relative overflow-hidden rounded-[30px] border border-white/15 bg-[#172945] p-6 shadow-[0_28px_60px_rgba(0,0,0,.2)]">
-                <div className="absolute bottom-0 left-0 h-32 w-32 rounded-full bg-[#cd9e40]/10 blur-2xl" />
                 <div className="relative flex items-center justify-between border-b border-white/10 pb-5">
                   <span className="text-[11px] font-bold tracking-[.12em] text-[#9ba9bd]">NEXT IN THE CALENDAR</span>
                   <CalendarDays size={18} className="text-[#d7b45b]" />

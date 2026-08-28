@@ -41,6 +41,29 @@ type Program = {
   certificate: string;
 };
 
+const googleFormBaseUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfvebMSrSXD8JiqH7xnac_Coqw9pohZo_0BiMEF3kIdM92ogA/viewform";
+
+function buildPrefilledGoogleFormUrl({
+  program,
+  name,
+  email,
+  phone,
+}: {
+  program: string;
+  name: string;
+  email: string;
+  phone: string;
+}) {
+  const url = new URL(googleFormBaseUrl);
+  url.searchParams.set("usp", "pp_url");
+  url.searchParams.set("entry.1800771850", program);
+  url.searchParams.set("entry.425654170", name);
+  url.searchParams.set("entry.1966726233", email);
+  url.searchParams.set("entry.143496574", phone);
+  return url.toString();
+}
+
 const programs: Program[] = [
   {
     id: "p01",
@@ -464,9 +487,14 @@ export function Home() {
   
   const openInterest = (program: Program) => {
     setSelectedId(null);
-    setInterestProgram(program);
-    setInterestSent(false);
-    setInterestError("");
+    window.location.assign(
+      buildPrefilledGoogleFormUrl({
+        program: program.name,
+        name: "",
+        email: "",
+        phone: "",
+      }),
+    );
   };
   
   const submitInterest = (event: FormEvent<HTMLFormElement>) => {
@@ -490,6 +518,14 @@ export function Home() {
       {
         onSuccess: () => {
           setInterestSent(true);
+          window.location.assign(
+            buildPrefilledGoogleFormUrl({
+              program: interestProgram.name,
+              name: formName.trim(),
+              email: formEmail.trim(),
+              phone: formPhone.trim(),
+            }),
+          );
         },
         onError: (error) => {
           setInterestError(error.message || "تعذر إرسال الطلب حالياً. حاول مرة أخرى.");

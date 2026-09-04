@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { useCreateRegistration } from "@workspace/api-client-react";
+import { partnerLogos, programs as currentPrograms, type Mode, type Program } from "@/data/programs";
 import {
   ArrowLeft,
   CalendarDays,
@@ -11,7 +12,9 @@ import {
   ExternalLink,
   GraduationCap,
   Headphones,
+  Linkedin,
   MapPin,
+  MessageCircle,
   Menu,
   Phone,
   Search,
@@ -21,25 +24,6 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-
-type Mode = "حضوري" | "عن بعد" | "حضوري / عن بعد";
-
-type Program = {
-  id: string;
-  date: string;
-  month: string;
-  monthOrder: number;
-  day: string;
-  name: string;
-  mode: Mode;
-  city: string;
-  days: number;
-  overview: string;
-  axes: string[];
-  audience: string;
-  tags: string[];
-  certificate: string;
-};
 
 const googleFormBaseUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfvebMSrSXD8JiqH7xnac_Coqw9pohZo_0BiMEF3kIdM92ogA/viewform";
@@ -64,7 +48,7 @@ function buildPrefilledGoogleFormUrl({
   return url.toString();
 }
 
-const programs: Program[] = [
+const legacyPrograms = [
   {
     id: "p01",
     date: "24/8/2026",
@@ -403,8 +387,9 @@ const programs: Program[] = [
   },
 ];
 
+const programs = currentPrograms;
 const months = ["الكل", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
-const modeFilters: Array<"الكل" | Mode> = ["الكل", "حضوري", "عن بعد", "حضوري / عن بعد"];
+const modeFilters: Array<"الكل" | Mode> = ["الكل", "حضوري", "عن بعد", "حضوري / عن بعد", "هجين"];
 
 function normalize(value: string) {
   return value.trim().toLowerCase().replace(/[إأآا]/g, "ا").replace(/[ى]/g, "ي").replace(/[ة]/g, "ه");
@@ -423,28 +408,47 @@ function ProgramCard({ program, onOpen }: { program: Program; onOpen: () => void
     <button
       type="button"
       onClick={onOpen}
-      className="group relative flex min-h-[264px] flex-col overflow-hidden rounded-[22px] border border-[#ded8cc] bg-[#fffdf8] p-5 text-right shadow-[0_12px_30px_rgba(31,43,62,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#b3924b] hover:shadow-[0_20px_44px_rgba(31,43,62,0.12)] focus:outline-none focus:ring-2 focus:ring-[#c79e46] focus:ring-offset-2"
+      className="group relative flex min-h-[390px] flex-col overflow-hidden rounded-[22px] border border-[#ded8cc] bg-[#fffdf8] p-0 text-right shadow-[0_12px_30px_rgba(31,43,62,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#b3924b] hover:shadow-[0_20px_44px_rgba(31,43,62,0.12)] focus:outline-none focus:ring-2 focus:ring-[#c79e46] focus:ring-offset-2"
     >
       <div className="absolute right-0 top-0 h-1 w-full bg-[#d7b45b] opacity-60 transition duration-300 group-hover:opacity-100" />
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <div className="flex h-[58px] w-[58px] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#182945] text-[#f5d98b]">
-          <span className="font-[var(--font-display)] text-[22px] font-black leading-none">{program.day}</span>
-          <span className="mt-1 text-[10px] font-semibold text-[#d9c99c]">{program.month}</span>
+      <div className="relative h-[154px] overflow-hidden bg-[#172945]">
+        <img src={program.image} alt={program.imageAlt} className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e1d35]/90 via-[#0e1d35]/10 to-transparent" />
+        <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
+          <div className="flex h-[54px] w-[54px] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#182945]/95 text-[#f5d98b] shadow-lg">
+            <span className="font-[var(--font-display)] text-[21px] font-black leading-none">{program.day}</span>
+            <span className="mt-1 text-[10px] font-semibold text-[#d9c99c]">{program.month}</span>
+          </div>
+          {program.isHadafFunded && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#fffdf8]/95 px-2.5 py-1.5 text-[10px] font-black text-[#18365c]">
+              <img src={partnerLogos.hadaf.src} alt="" className="h-4 w-4 object-contain" />
+              مستردة من هدف
+            </span>
+          )}
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold" style={{ color: tone.color, background: tone.background }}>
-          <ModeIcon size={13} strokeWidth={2.2} />
-          {program.mode}
-        </span>
+        <div className="absolute inset-x-4 bottom-3 flex items-end justify-between gap-3">
+          <div className="flex max-w-[72%] items-center gap-1.5 overflow-hidden rounded-xl border border-white/15 bg-[#fffdf8]/95 px-2 py-1.5">
+            {program.logoKeys.map((key, index) => (
+              <img key={key} src={partnerLogos[key].src} alt={program.logoLabels[index]} title={program.logoLabels[index]} className="h-6 max-w-[72px] object-contain" />
+            ))}
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1.5 text-[10px] font-bold" style={{ color: tone.color, background: tone.background }}>
+            <ModeIcon size={12} strokeWidth={2.2} />
+            {program.mode}
+          </span>
+        </div>
       </div>
-      <h3 className="font-[var(--font-display)] text-[18px] font-black leading-[1.55] text-[#182945] transition-colors group-hover:text-[#9b731e]">{program.name}</h3>
-      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[12px] text-[#73766f]">
-        <span className="inline-flex items-center gap-1.5"><MapPin size={14} />{program.city}</span>
-        <span className="inline-flex items-center gap-1.5"><Clock3 size={14} />{program.days} أيام</span>
-      </div>
-      <div className="mt-auto flex items-center justify-end border-t border-dashed border-[#e2ded4] pt-4">
-        <span className="inline-flex items-center gap-1 text-[13px] font-black text-[#182945] transition duration-300 group-hover:gap-2 group-hover:text-[#ac811e]">
-          عرض التفاصيل <ArrowLeft size={15} />
-        </span>
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="font-[var(--font-display)] text-[18px] font-black leading-[1.55] text-[#182945] transition-colors group-hover:text-[#9b731e]">{program.name}</h3>
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[12px] text-[#73766f]">
+          <span className="inline-flex items-center gap-1.5"><MapPin size={14} />{program.city}</span>
+          <span className="inline-flex items-center gap-1.5"><Clock3 size={14} />{program.durationLabel}</span>
+        </div>
+        <div className="mt-auto flex items-center justify-end border-t border-dashed border-[#e2ded4] pt-4">
+          <span className="inline-flex items-center gap-1 text-[13px] font-black text-[#182945] transition duration-300 group-hover:gap-2 group-hover:text-[#ac811e]">
+            عرض التفاصيل <ArrowLeft size={15} />
+          </span>
+        </div>
       </div>
     </button>
   );
@@ -626,8 +630,8 @@ export function Home() {
       <section className="border-b border-[#ded8cc] bg-[#fbf8f1]">
         <div className="mx-auto grid max-w-[1240px] grid-cols-2 divide-x divide-[#ded8cc] divide-x-reverse md:grid-cols-4 md:px-8">
           {([
-            ["21", "برنامجاً مهنياً", GraduationCap],
-            ["05", "مدن ومحطات عالمية", Compass],
+            [String(programs.length).padStart(2, "0"), "برنامجاً مهنياً", GraduationCap],
+            [String(new Set(programs.map((program) => program.city).filter((city) => city !== "—")).size).padStart(2, "0"), "مدن ومحطات عالمية", Compass],
             ["03", "مسارات تعلّم", Target],
             ["∞", "مساحة للنمو", Sparkles],
           ] as Array<[string, string, LucideIcon]>).map(([value, label, StatIcon], index) => {
@@ -692,6 +696,8 @@ export function Home() {
              <div className="mt-4 flex flex-wrap gap-3 text-[14px] font-black text-[#f6e7b8]">
                <a href="tel:0595928796" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928796</a>
                <a href="tel:0595928812" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Phone size={15} />0595928812</a>
+                <a href="https://wa.me/966595928812" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#29c46a] px-4 py-2 text-white transition hover:bg-[#20ad5b]"><MessageCircle size={15} />واتساب 0595928812</a>
+                <a href="https://www.linkedin.com/in/sohool-al-rowad-training-company-1190522a6" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-[#d7b45b] hover:text-[#efd181]"><Linkedin size={15} />LinkedIn</a>
              </div>
            </div>
            <button type="button" onClick={scrollToPrograms} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7b45b] px-7 py-4 text-[13px] font-black text-[#182945] transition hover:-translate-y-1 hover:bg-[#efd181]">العودة إلى الخطة <ArrowLeft size={17} /></button>
@@ -710,23 +716,29 @@ export function Home() {
           <button type="button" aria-label="إغلاق التفاصيل" onClick={() => setSelectedId(null)} className="absolute inset-0 cursor-default" />
           <article className="relative max-h-[92dvh] w-full max-w-[980px] overflow-y-auto rounded-t-[28px] bg-[#f8f4eb] shadow-[0_30px_80px_rgba(0,0,0,.25)] md:rounded-[28px]">
             <div className="relative overflow-hidden bg-[#101f38] px-6 pb-8 pt-7 text-[#f8f1df] md:px-10 md:pt-8">
+              <img src={selectedProgram.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
+              <div className="absolute inset-0 bg-gradient-to-l from-[#101f38]/95 via-[#101f38]/90 to-[#101f38]/70" />
               <div className="absolute left-0 top-0 h-full w-1/2 bg-[#d7b45b]/5" />
               <button type="button" onClick={() => setSelectedId(null)} aria-label="إغلاق" className="absolute left-5 top-5 rounded-full border border-white/15 p-2 text-[#cbd2df] transition hover:bg-white/10 hover:text-white"><X size={18} /></button>
-              <div className="relative flex flex-wrap items-center gap-3 text-[11px] font-bold text-[#e1c36f]"><span className="rounded-full bg-[#d7b45b]/15 px-3 py-1.5">{selectedProgram.mode}</span><span>{selectedProgram.month} 2026</span></div>
+              <div className="relative flex flex-wrap items-center gap-3 text-[11px] font-bold text-[#e1c36f]"><span className="rounded-full bg-[#d7b45b]/15 px-3 py-1.5">{selectedProgram.mode}</span><span>{selectedProgram.month} 2026</span>{selectedProgram.isHadafFunded && <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5"><img src={partnerLogos.hadaf.src} alt="" className="h-4 w-4 object-contain" />مستردة من هدف</span>}</div>
               <h2 className="relative mt-5 max-w-[720px] font-[var(--font-display)] text-[clamp(25px,4vw,40px)] font-black leading-[1.35]">{selectedProgram.name}</h2>
               <div className="relative mt-7 flex flex-wrap gap-2">
-                {([[MapPin, selectedProgram.city], [CalendarDays, selectedProgram.date], [Clock3, `${selectedProgram.days} أيام`]] as Array<[LucideIcon, string]>).map(([DetailIcon, value]) => <span key={String(value)} className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-[12px] text-[#cbd2df]"><DetailIcon size={14} className="text-[#e0bd65]" />{value}</span>)}
+                {([[MapPin, selectedProgram.city], [CalendarDays, selectedProgram.date], [Clock3, selectedProgram.durationLabel]] as Array<[LucideIcon, string]>).map(([DetailIcon, value]) => <span key={String(value)} className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-[12px] text-[#cbd2df]"><DetailIcon size={14} className="text-[#e0bd65]" />{value}</span>)}
+              </div>
+              <div className="relative mt-5 flex flex-wrap items-center gap-2">
+                {selectedProgram.logoKeys.map((key, index) => <span key={key} className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/90 px-2.5 py-1.5"><img src={partnerLogos[key].src} alt={selectedProgram.logoLabels[index]} className="h-8 max-w-[110px] object-contain" /></span>)}
               </div>
             </div>
             <div className="grid gap-7 p-6 md:grid-cols-[1.35fr_.75fr] md:p-10">
               <div>
                 <div className="border-b border-[#e1dbd0] pb-7"><h3 className="flex items-center gap-2 font-[var(--font-display)] text-[18px] font-black text-[#182945]"><span className="h-5 w-1 rounded-full bg-[#d7b45b]" />نبذة عن البرنامج</h3><p className="mt-4 text-[14px] leading-8 text-[#646c6a]">{selectedProgram.overview}</p></div>
                 <div className="pt-7"><h3 className="flex items-center gap-2 font-[var(--font-display)] text-[18px] font-black text-[#182945]"><span className="h-5 w-1 rounded-full bg-[#d7b45b]" />محاور البرنامج</h3><ol className="mt-4 grid gap-3">{selectedProgram.axes.map((axis, index) => <li key={axis} className="flex items-start gap-3 text-[13px] leading-6 text-[#646c6a]"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#182945] font-[var(--font-display)] text-[11px] font-black text-[#e0bd65]">{String(index + 1).padStart(2, "0")}</span>{axis}</li>)}</ol></div>
+                <div className="mt-7 rounded-[22px] border border-[#e0d9cb] bg-[#fffdf8] p-5"><h3 className="flex items-center gap-2 font-[var(--font-display)] text-[18px] font-black text-[#182945]"><span className="h-5 w-1 rounded-full bg-[#d7b45b]" />الاعتماد والتمويل</h3><p className="mt-3 text-[13px] leading-7 text-[#646c6a]">{selectedProgram.certification}</p><div className="mt-4 flex flex-wrap gap-2">{selectedProgram.logoKeys.map((key, index) => <span key={key} className="inline-flex items-center gap-2 rounded-xl border border-[#e5dfd4] bg-[#fffdf8] px-2.5 py-2"><img src={partnerLogos[key].src} alt={selectedProgram.logoLabels[index]} className="h-8 max-w-[105px] object-contain" /></span>)}{selectedProgram.isHadafFunded && <span className="inline-flex items-center gap-2 rounded-xl border border-[#d7e1ee] bg-[#edf4fb] px-2.5 py-2 text-[11px] font-black text-[#234a76]"><img src={partnerLogos.hadaf.src} alt={partnerLogos.hadaf.alt} className="h-8 w-8 object-contain" />مستردة من هدف</span>}</div><div className="mt-4 flex items-center gap-3 rounded-2xl border border-[#d7eadc] bg-[#f0faf2] px-3 py-2.5"><span className="text-[17px] font-black tracking-[-.06em] text-[#20a66a]">tabby</span><span className="text-[11px] font-bold leading-5 text-[#47735a]">خيارات دفع مرنة متاحة حسب شروط الجهة</span></div></div>
               </div>
               <aside className="space-y-4">
                 <div className="rounded-[22px] border border-[#e0d9cb] bg-[#fffdf8] p-5"><h3 className="font-[var(--font-display)] text-[17px] font-black text-[#182945]">معلومات سريعة</h3><div className="mt-4 space-y-3 text-[12px]"><div className="flex justify-between gap-4 border-b border-dashed border-[#e2ded4] pb-3"><span className="text-[#888a82]">الفئة المستهدفة</span><b className="max-w-[150px] text-left leading-5 text-[#182945]">{selectedProgram.audience}</b></div><div className="flex justify-between gap-4"><span className="text-[#888a82]">المدرب</span><b className="text-left text-[#182945]">فريق مدربين معتمدين</b></div></div></div>
                 <div className="rounded-[22px] bg-[#e9dfc4] p-5"><h3 className="font-[var(--font-display)] text-[16px] font-black text-[#182945]">يستهدف مهارات</h3><div className="mt-3 flex flex-wrap gap-2">{selectedProgram.tags.map((tag) => <span key={tag} className="rounded-full bg-[#f8f1df] px-3 py-1.5 text-[11px] font-bold text-[#7b601e]">{tag}</span>)}</div></div>
-                <div className="rounded-[22px] bg-[#182945] p-5 text-[#f8f1df]"><h3 className="font-[var(--font-display)] text-[17px] font-black">للتفاصيل والتسجيل</h3><p className="mt-2 text-[12px] leading-6 text-[#bfc8d4]">للتسجيل في البرنامج التدريبي أو معرفة التفاصيل، تواصل معنا:</p><div className="mt-3 grid gap-2 text-[13px] font-black text-[#f4d982]"><a href="tel:0595928796" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928812</a></div><button type="button" onClick={() => openInterest(selectedProgram)} className="mt-4 w-full rounded-full bg-[#d7b45b] py-3 text-[12px] font-black text-[#182945] transition hover:bg-[#efd181]">سجّل اهتمامك</button></div>
+                 <div className="rounded-[22px] bg-[#182945] p-5 text-[#f8f1df]"><h3 className="font-[var(--font-display)] text-[17px] font-black">للتفاصيل والتسجيل</h3><p className="mt-2 text-[12px] leading-6 text-[#bfc8d4]">للتسجيل في البرنامج التدريبي أو معرفة التفاصيل، تواصل معنا مباشرة:</p><div className="mt-3 grid gap-2 text-[13px] font-black text-[#f4d982]"><a href="tel:0595928796" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928796</a><a href="tel:0595928812" className="inline-flex items-center gap-2 transition hover:text-white"><Phone size={14} />0595928812</a></div><div className="mt-4 grid gap-2"><a href="https://wa.me/966595928812" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#29c46a] py-3 text-[12px] font-black text-white transition hover:bg-[#20ad5b]"><MessageCircle size={15} />تواصل واتساب</a><a href="https://www.linkedin.com/in/sohool-al-rowad-training-company-1190522a6" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 py-3 text-[12px] font-black text-[#e7d38f] transition hover:border-[#d7b45b] hover:text-white"><Linkedin size={15} />تابعنا على LinkedIn</a></div><button type="button" onClick={() => openInterest(selectedProgram)} className="mt-3 w-full rounded-full bg-[#d7b45b] py-3 text-[12px] font-black text-[#182945] transition hover:bg-[#efd181]">سجّل اهتمامك</button></div>
               </aside>
             </div>
           </article>

@@ -477,13 +477,24 @@ export function Home() {
 
   const filteredPrograms = useMemo(() => {
     const normalizedQuery = normalize(query);
-    return programs.filter((program) => {
-      const searchable = normalize([program.name, program.city, ...program.tags].join(" "));
-      const matchesQuery = !normalizedQuery || searchable.includes(normalizedQuery);
-      const matchesMonth = month === "الكل" || program.month === month;
-      const matchesMode = mode === "الكل" || program.mode === mode || (mode === "حضوري" && program.mode === "حضوري / عن بعد") || (mode === "عن بعد" && program.mode === "حضوري / عن بعد");
-      return matchesQuery && matchesMonth && matchesMode;
-    });
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return programs
+      .filter((program) => {
+        const searchable = normalize([program.name, program.city, ...program.tags].join(" "));
+        const matchesQuery = !normalizedQuery || searchable.includes(normalizedQuery);
+        const matchesMonth = month === "الكل" || program.month === month;
+        const matchesMode = mode === "الكل" || program.mode === mode || (mode === "حضوري" && program.mode === "حضوري / عن بعد") || (mode === "عن بعد" && program.mode === "حضوري / عن بعد");
+        return matchesQuery && matchesMonth && matchesMode;
+      })
+      .sort((first, second) => {
+        const firstDate = programDate(first).getTime();
+        const secondDate = programDate(second).getTime();
+        const firstIsPast = firstDate < today.getTime();
+        const secondIsPast = secondDate < today.getTime();
+        if (firstIsPast !== secondIsPast) return firstIsPast ? 1 : -1;
+        return firstDate - secondDate;
+      });
   }, [mode, month, query]);
 
   const selectedProgram = selectedId ? programs.find((program) => program.id === selectedId) ?? null : null;
@@ -494,10 +505,18 @@ export function Home() {
       .filter((program) => programDate(program) >= today)
       .sort((first, second) => programDate(first).getTime() - programDate(second).getTime())[0] ?? programs[0];
   }, []);
-  const grouped = useMemo(() => months.slice(1).map((currentMonth) => ({
-    month: currentMonth,
-    items: filteredPrograms.filter((program) => program.month === currentMonth),
-  })).filter((section) => section.items.length > 0), [filteredPrograms]);
+  const grouped = useMemo(() => {
+    const sections: Array<{ month: string; items: Program[] }> = [];
+    filteredPrograms.forEach((program) => {
+      const section = sections.find((candidate) => candidate.month === program.month);
+      if (section) {
+        section.items.push(program);
+      } else {
+        sections.push({ month: program.month, items: [program] });
+      }
+    });
+    return sections;
+  }, [filteredPrograms]);
 
   const scrollToPrograms = () => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth", block: "start" });
   

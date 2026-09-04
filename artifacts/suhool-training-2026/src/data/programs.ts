@@ -286,6 +286,8 @@ const seeds: Seed[] = [
   { id: "p35", date: "20/12/2026", month: "ديسمبر", monthOrder: 12, day: "20", name: "فني حاسب آلي CompTIA A+", mode: "حضوري / عن بعد", city: "الرياض", days: 5, kind: "comptiaA", imageSlug: "comptia-a", logoKeys: ["comptia", "comptiaA"], logoLabels: ["CompTIA", "A+"], isHadafFunded: true },
   { id: "p36", date: "20/12/2026", month: "ديسمبر", monthOrder: 12, day: "20", name: "محترف أعمال خدمة العملاء CBP", mode: "حضوري / عن بعد", city: "جدة", days: 3, kind: "customer", imageSlug: "cbp-customer-service", logoKeys: ["ibta", "cbp"], logoLabels: ["IBTA", "CBP"], isHadafFunded: true },
   { id: "p37", date: "27/12/2026", month: "ديسمبر", monthOrder: 12, day: "27", name: "أخصائي تكنولوجيا الحاسب الآلي CBP", mode: "حضوري / عن بعد", city: "الرياض", days: 5, kind: "computerTechnology", imageSlug: "computer-technology", logoKeys: ["ibta", "cbp"], logoLabels: ["IBTA", "CBP"], isHadafFunded: true },
+  { id: "p38", date: "8/11/2026", month: "نوفمبر", monthOrder: 11, day: "08", name: "استشاري الذكاء الاصطناعي", mode: "هجين", city: "الرياض / الدمام / جدة", days: 9, durationLabel: "9 أسابيع", kind: "transformation", imageSlug: "ai-transformation", logoKeys: ["kingAbdulaziz"], logoLabels: ["اعتماد جامعة الملك عبدالعزيز"] },
+  { id: "p39", date: "6/12/2026", month: "ديسمبر", monthOrder: 12, day: "06", name: "استشاري الحوكمة وإدارة المخاطر والامتثال", mode: "هجين", city: "الرياض / الدمام / جدة", days: 9, durationLabel: "9 أسابيع", kind: "riskGovernance", imageSlug: "risk-governance", logoKeys: ["kingAbdulaziz"], logoLabels: ["اعتماد جامعة الملك عبدالعزيز"] },
 ];
 
 export const programs: Program[] = seeds.map((seed) => {

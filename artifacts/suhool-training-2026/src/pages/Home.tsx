@@ -295,7 +295,7 @@ const legacyPrograms = [
     month: "نوفمبر",
     monthOrder: 11,
     day: "22",
-    name: "محترف ريادة الأعمال للشباب CBP",
+    name: "محترف ريادة الأعمال للشباب CYBP",
     mode: "حضوري / عن بعد",
     city: "الرياض",
     days: 5,
@@ -395,6 +395,11 @@ function normalize(value: string) {
   return value.trim().toLowerCase().replace(/[إأآا]/g, "ا").replace(/[ى]/g, "ي").replace(/[ة]/g, "ه");
 }
 
+function programDate(program: Program) {
+  const [day, month, year] = program.date.split("/").map(Number);
+  return new Date(year, month - 1, day);
+}
+
 function modeTone(mode: Mode) {
   if (mode === "حضوري") return { color: "#9c6b1c", background: "#f7ecd3", icon: MapPin };
   if (mode === "عن بعد") return { color: "#256b63", background: "#dff0e9", icon: Compass };
@@ -482,6 +487,13 @@ export function Home() {
   }, [mode, month, query]);
 
   const selectedProgram = selectedId ? programs.find((program) => program.id === selectedId) ?? null : null;
+  const nextProgram = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return programs
+      .filter((program) => programDate(program) >= today)
+      .sort((first, second) => programDate(first).getTime() - programDate(second).getTime())[0] ?? programs[0];
+  }, []);
   const grouped = useMemo(() => months.slice(1).map((currentMonth) => ({
     month: currentMonth,
     items: filteredPrograms.filter((program) => program.month === currentMonth),
@@ -582,7 +594,7 @@ export function Home() {
               <button type="button" onClick={() => { setMenuOpen(false); scrollToPrograms(); }} className="rounded-xl px-3 py-3 text-right hover:bg-white/10">الخطة الشهرية</button>
             </div>
           )}
-          <div className="grid gap-9 py-11 md:grid-cols-[1.05fr_.95fr] md:items-center md:py-16">
+           <div className="grid gap-9 py-11 md:grid-cols-[1.05fr_.95fr] md:items-center md:py-16">
             <div className="suhool-rise">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d7b45b]/35 bg-[#d7b45b]/10 px-3.5 py-2 text-[11px] font-bold text-[#f0cf76]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d7b45b]" />
@@ -606,21 +618,22 @@ export function Home() {
                   <CalendarDays size={18} className="text-[#d7b45b]" />
                 </div>
                 <div className="relative flex items-end gap-5 py-8">
-                  <div className="font-[var(--font-display)] text-[72px] font-black leading-[.8] text-[#f6df9a]">24</div>
+                   <div className="font-[var(--font-display)] text-[72px] font-black leading-[.8] text-[#f6df9a]">{nextProgram.day}</div>
                   <div className="pb-1">
-                    <div className="text-[13px] font-bold text-[#f6f0de]">أغسطس 2026</div>
-                    <div className="mt-1 text-[11px] text-[#9ba9bd]">إسطنبول · 5 أيام</div>
+                     <div className="text-[13px] font-bold text-[#f6f0de]">{nextProgram.month} 2026</div>
+                     <div className="mt-1 text-[11px] text-[#9ba9bd]">{nextProgram.city} · {nextProgram.durationLabel}</div>
                   </div>
                 </div>
                 <div className="relative rounded-2xl bg-[#0e1d35] p-4">
                   <div className="text-[11px] font-bold text-[#d7b45b]">البرنامج الأبرز</div>
-                  <div className="mt-2 font-[var(--font-display)] text-[17px] font-black leading-7 text-[#f6f0de]">الاستشراف الاستراتيجي وصناعة الجاهزية المستقبلية</div>
-                  <button type="button" onClick={() => setSelectedId("p01")} className="mt-4 inline-flex items-center gap-2 text-[12px] font-bold text-[#cbd2df] transition hover:text-[#f0cf76]">تعرف على البرنامج <ArrowLeft size={14} /></button>
+                   <div className="mt-2 font-[var(--font-display)] text-[17px] font-black leading-7 text-[#f6f0de]">{nextProgram.name}</div>
+                   {nextProgram.isHadafFunded && <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#fffdf8]/95 px-2.5 py-1.5 text-[10px] font-black text-[#18365c]"><img src={partnerLogos.hadaf.src} alt="" className="h-4 w-4 object-contain" />مستردة من هدف</div>}
+                   <button type="button" onClick={() => setSelectedId(nextProgram.id)} className="mt-4 inline-flex items-center gap-2 text-[12px] font-bold text-[#cbd2df] transition hover:text-[#f0cf76]">تعرف على البرنامج <ArrowLeft size={14} /></button>
                 </div>
               </div>
               <div className="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-2xl border border-[#e9d7a8] bg-[#f7f1e1] px-4 py-3 text-[#182945] shadow-[0_14px_28px_rgba(0,0,0,.15)]">
                 <ShieldCheck size={19} className="text-[#ae8123]" />
-                <span className="text-[11px] font-bold leading-4">تعلم موثوق<br /><b className="text-[12px]">بأثر عملي</b></span>
+                 <span className="text-[11px] font-bold leading-4">نتميز بتمكين<br /><b className="text-[12px]">القيادات</b></span>
               </div>
             </div>
           </div>
@@ -628,14 +641,13 @@ export function Home() {
       </header>
 
       <section className="border-b border-[#ded8cc] bg-[#fbf8f1]">
-        <div className="mx-auto grid max-w-[1240px] grid-cols-2 divide-x divide-[#ded8cc] divide-x-reverse md:grid-cols-4 md:px-8">
+         <div className="mx-auto grid max-w-[1240px] grid-cols-2 divide-x divide-[#ded8cc] divide-x-reverse sm:grid-cols-3 md:px-8">
           {([
             [String(programs.length).padStart(2, "0"), "برنامجاً مهنياً", GraduationCap],
             [String(new Set(programs.map((program) => program.city).filter((city) => city !== "—")).size).padStart(2, "0"), "مدن ومحطات عالمية", Compass],
             ["03", "مسارات تعلّم", Target],
-            ["∞", "مساحة للنمو", Sparkles],
           ] as Array<[string, string, LucideIcon]>).map(([value, label, StatIcon], index) => {
-            return <div key={String(label)} className={`flex items-center gap-3 px-5 py-5 md:px-7 ${index > 1 ? "border-t border-[#ded8cc] md:border-t-0" : ""}`}>
+             return <div key={String(label)} className={`flex items-center gap-3 px-5 py-5 md:px-7 ${index > 1 ? "border-t border-[#ded8cc] sm:border-t-0" : ""}`}>
               <StatIcon size={19} className="shrink-0 text-[#b18328]" />
               <div><div className="font-[var(--font-display)] text-[23px] font-black text-[#182945]">{value}</div><div className="text-[11px] font-bold text-[#777a73]">{label}</div></div>
             </div>;

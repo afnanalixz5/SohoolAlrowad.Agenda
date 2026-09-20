@@ -49,9 +49,18 @@ router.post("/registrations", async (req, res): Promise<void> => {
   }
 
   try {
+    const registrationData = parsed.data as {
+      name: string;
+      email: string;
+      phone: string;
+      program: string;
+      date: string;
+      city: string;
+      mode: string;
+    };
     const [registration] = await db
       .insert(registrationsTable)
-      .values(parsed.data)
+      .values(registrationData)
       .returning();
 
     res.status(201).json(CreateRegistrationResponse.parse(registration));
